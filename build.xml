@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="solr" basedir="." default="RAA-RPM">
+
+    <description>
+        Ant-byggfil, ksamsok - solr.
+    </description>
+
+    <target name="init">
+        <tstamp/>
+        <property environment="env"/>
+
+        <property file="local.properties"/>
+
+        <property name="project.build.dir" value="${basedir}/build"/>
+
+        <property name="project.name" value="ksamsok-solr"/>
+        <property name="project.version" value="${DSTAMP}"/>
+        <property name="project.src.dir" value="${basedir}/src"/>
+        <property name="project.src.lib.dir" value="${basedir}/lib"/>
+        <property name="jar.name"
+            value="${project.name}-${project.version}.jar"/>
+        <property name="war.name"
+            value="${project.name}-${project.version}.war"/>
+        <property name="short.war.name"
+            value="${project.name}.war"/>
+
+        <!-- för rpm, öka vid ny version... -->
+		<property name="major.minor" 	value="0.2" />
+		<property name="release" 		value="1" />
+
+        <property name="javac.debug" value="true"/>
+        <property name="javac.optimize" value="true"/>
+
+        <path id="project.classpath">
+            <fileset dir="${project.src.lib.dir}">
+                <include name="*.jar"/>
+            </fileset>
+        </path>
+
+        <fileset id="deploy.jars" dir="${project.src.lib.dir}">
+            <patternset id="deploy.jars.pattern" />
+        </fileset>
+
+		<!-- Konfigurationsfiler -->
+        <patternset id="conf.pattern">
+        	<include name="**/*.properties"/>
+        	<exclude name="unpackaged/**" />
+        	<exclude name="lib/**" />
+        	<exclude name="war/**" />
+        </patternset>
+        <fileset id="conf.files" dir="${project.src.dir}">
+            <patternset id="conf.pattern" />
+        </fileset>
+
+    	<mkdir dir="${project.src.dir}/src"/>
+        <mkdir dir="${project.src.dir}/lib"/>
+
+        <mkdir dir="${project.build.dir}"/>
+		<mkdir dir="${project.build.dir}/lib"/>
+		<mkdir dir="${project.build.dir}/war"/>
+    </target>
+
+    <target name="compile" depends="init"
+		description="Kompilerar java-klasser.">
+        <javac srcdir="${project.src.dir}"
+            destdir="${project.build.dir}"
+            classpathref="project.classpath"
+            debug="${javac.debug}" 
+            optimize="${javac.optimize}"
+            encoding="ISO-8859-1">
+            <patternset>
+                <include name="**/*.java"/>
+            	<exclude name="**/*Test.java"/>
+            </patternset>
+
+        </javac>
+    </target>
+
+	<!-- Bygger en JAR -->
+	<target name="jar" depends="init,compile,conf-copy"
+		description="Skapar en JAR.">
+		<jar jarfile="${project.build.dir}/lib/${jar.name}"
+			basedir="${project.build.dir}"
+			update="false" duplicate="preserve" index="true" whenmanifestonly="skip">
+			<patternset>
+				<include name="**/*.class"/>
+				<exclude name="unpackaged/**"/>
+			</patternset>
+			<patternset refid="conf.pattern" />
+		</jar>
+	</target>
+
+	<!-- Bygger en WAR -->
+	<target name="war" depends="jar" description="Skapar en WAR för deployment och lägger in log4j bla.">
+		<unwar dest="${project.build.dir}/unpacked">
+			<fileset dir="${basedir}/solr">
+				<include name="apache-solr-*.war"/>
+			</fileset>
+		</unwar>
+		<delete verbose="true">
+			<fileset dir="${project.build.dir}/unpacked/WEB-INF/lib">
+				<exclude name="slf4j-api-*.jar" />
+				<include name="slf4j-*.jar" />
+			</fileset>
+		</delete>
+		<copy todir="${project.build.dir}/unpacked/WEB-INF/lib">
+			<fileset dir="${basedir}/solr">
+				<include name="slf4j-log4j*.jar"/>
+				<include name="log4j-*.jar"/>
+			</fileset>
+		</copy>
+		<copy file="${basedir}/solr/log4j.properties" todir="${project.build.dir}/unpacked/WEB-INF/classes" />
+		<copy file="${basedir}/solr/context.xml" todir="${project.build.dir}/unpacked/META-INF/" />
+		<copy todir="${project.build.dir}/unpacked/WEB-INF/lib">
+			<fileset dir="${project.build.dir}/lib">
+				<include name="${project.name}-*.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${project.build.dir}/unpacked/WEB-INF/lib">
+			<fileset refid="deploy.jars" />
+		</copy>
+		<war destfile="${project.build.dir}/war/solr.war" basedir="${project.build.dir}/unpacked" />
+
+	</target>
+
+	<target name="conf-copy" depends="init">
+        <copy todir="${project.build.dir}" >
+            <fileset refid="conf.files" />
+        </copy>
+    </target>
+
+    <target name="build" depends="init" description="Bygger.">
+        <antcall target="compile"/>
+        <antcall target="conf-copy"/>
+    </target>
+
+    <target name="clean" depends="init"
+        description="Tar bort build-katalogen.">
+        <delete includeemptydirs="true" >
+            <fileset dir="${project.build.dir}">
+                <patternset>
+                    <include name="**"/>
+                </patternset>
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="javadoc" depends="init"
+		description="Genererar javadoc.">
+        <javadoc sourcepath="${project.src.dir}"
+        	classpathref="project.classpath"
+            destdir="${project.build.dir}/javadoc"
+            packagenames="se.raa.ksamsok.*"
+            defaultexcludes="yes"
+            windowtitle="K-samsök-solr"
+            access="package"
+            use="true"
+            >
+        </javadoc>
+    </target>
+
+	<target name="RAA-RPM" depends="war" description="Skapa rpm för raä:s driftmiljö">
+
+		<!-- skapa RPM-struktur -->
+		<mkdir dir="${project.build.dir}/rpm/RPMS" />
+		<mkdir dir="${project.build.dir}/rpm/SPECS" />
+		<mkdir dir="${project.build.dir}/rpm/SOURCES" />
+		<mkdir dir="${project.build.dir}/rpm/BUILD" />
+		<mkdir dir="${project.build.dir}/rpm/SRPMS" />
+		<mkdir dir="${project.build.dir}/rpm/INSTALL" />
+
+		<copy todir="${project.build.dir}/rpm/SPECS" file="rpm/ksamsok-solr.spec" />
+
+		<!-- kopiera in så som det ska se ut sen efter installation -->
+		<copy todir="${project.build.dir}/rpm/SOURCES/">
+			<fileset dir="${project.build.dir}/war">
+				<include name="solr.war"/>
+			</fileset>
+		</copy>
+		<copy todir="${project.build.dir}/rpm/SOURCES/">
+			<!--
+			<fileset dir="rpm">
+				<include name="solr.xml"/>
+			</fileset>
+			-->
+			<fileset dir="solr-home" />
+		</copy>
+
+		<!-- Skapa själva rpm-filen -->
+    	<echo message="${project.build.dir}"/>
+		<rpm
+			specFile="ksamsok-solr.spec"
+		    topDir="${project.build.dir}/rpm"
+		    cleanBuildDir="true"
+		    failOnError="true"/>
+
+    	<!-- Lägg upp rpm-filen i ${project.build.rpm.dir} -->
+    	<copy todir="${project.build.dir}/rpm">
+    		<fileset dir="${project.build.dir}/rpm/RPMS/x86_64">
+    	    	<include name="*.rpm"/>
+    	    </fileset>
+    	</copy>
+
+	</target>
+
+</project>
