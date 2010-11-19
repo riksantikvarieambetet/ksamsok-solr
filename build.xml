@@ -10,6 +10,7 @@
         <property environment="env"/>
 
         <property file="local.properties"/>
+    	<property file="build.properties"/>
 
         <property name="project.build.dir" value="${basedir}/build"/>
 
@@ -110,7 +111,11 @@
 			</fileset>
 		</copy>
 		<copy file="${basedir}/solr/log4j.properties" todir="${project.build.dir}/unpacked/WEB-INF/classes" />
-		<copy file="${basedir}/solr/context.xml" todir="${project.build.dir}/unpacked/META-INF/" />
+		<copy file="${basedir}/solr/context.xml" todir="${project.build.dir}/unpacked/META-INF/">
+			<filterset>
+				<filter token="SOLR_HOME" value="${solr.home}"/>
+			</filterset>
+		</copy>
 		<copy todir="${project.build.dir}/unpacked/WEB-INF/lib">
 			<fileset dir="${project.build.dir}/lib">
 				<include name="${project.name}-*.jar"/>
