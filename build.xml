@@ -25,10 +25,6 @@
         <property name="short.war.name"
             value="${project.name}.war"/>
 
-        <!-- för rpm, öka vid ny version... -->
-		<property name="major.minor" 	value="0.2" />
-		<property name="release" 		value="1" />
-
         <property name="javac.debug" value="true"/>
         <property name="javac.optimize" value="true"/>
 
@@ -39,7 +35,9 @@
         </path>
 
         <fileset id="deploy.jars" dir="${project.src.lib.dir}">
-            <patternset id="deploy.jars.pattern" />
+        	<!-- lägg till extra jar-filer här som behövs vid deploy, de som redan finns i solr.war
+        	     men som kanske finns i lib för att kunna bygga ska inte tas med -->
+            <include name="" />
         </fileset>
 
 		<!-- Konfigurationsfiler -->
@@ -53,8 +51,8 @@
             <patternset id="conf.pattern" />
         </fileset>
 
-    	<mkdir dir="${project.src.dir}/src"/>
-        <mkdir dir="${project.src.dir}/lib"/>
+    	<mkdir dir="${basedir}/src"/>
+        <mkdir dir="${basedir}/lib"/>
 
         <mkdir dir="${project.build.dir}"/>
 		<mkdir dir="${project.build.dir}/lib"/>
@@ -116,12 +114,14 @@
 				<filter token="SOLR_HOME" value="${solr.home}"/>
 			</filterset>
 		</copy>
+		<echo>Kopierar projektets jar-fil</echo>
 		<copy todir="${project.build.dir}/unpacked/WEB-INF/lib">
 			<fileset dir="${project.build.dir}/lib">
 				<include name="${project.name}-*.jar"/>
 			</fileset>
 		</copy>
-		<copy todir="${project.build.dir}/unpacked/WEB-INF/lib">
+		<echo>Kopierar eventuella extra jar-filer</echo>
+		<copy todir="${project.build.dir}/unpacked/WEB-INF/lib" verbose="true">
 			<fileset refid="deploy.jars" />
 		</copy>
 		<war destfile="${project.build.dir}/war/solr.war" basedir="${project.build.dir}/unpacked" />
