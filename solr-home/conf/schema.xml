@@ -550,10 +550,10 @@
 	<field name="nameAuth" type="string" indexed="true" stored="false" multiValued="true"/>
 
 	<!-- time -->
-	<field name="fromTime" type="string" indexed="true" stored="false" multiValued="true"/>
-	<field name="toTime" type="string" indexed="true" stored="false" multiValued="true"/>
-	<field name="decade" type="string" indexed="true" stored="false" multiValued="true"/>
-	<field name="century" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="fromTime" type="tint" indexed="true" stored="false" multiValued="true"/>
+	<field name="toTime" type="tint" indexed="true" stored="false" multiValued="true"/>
+	<field name="decade" type="tint" indexed="true" stored="false" multiValued="true"/>
+	<field name="century" type="tint" indexed="true" stored="false" multiValued="true"/>
 	<field name="fromPeriodName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="toPeriodName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="fromPeriodId" type="string" indexed="true" stored="false" multiValued="true"/>
@@ -636,44 +636,44 @@
         both match, the first appearing in the schema will be used.  -->
         
     <!-- place -->
-    <dynamicField name="*_placeName" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_cadastralUnit" type="string" indexed="true" stored="false" multiValued="true"/>
+    <dynamicField name="*_placeName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_cadastralUnit" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_placeTermId" type="string" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_placeTermAuth" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_continentName" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_countryName" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_countyName" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_municipalityName" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_provinceName" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_parishName" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_country" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_county" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_municipality" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_province" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_parish" type="string" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_continentName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_countryName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_countyName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_municipalityName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_provinceName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_parishName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_country" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_county" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_municipality" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_province" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_parish" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 
 	<!-- actor -->
-	<dynamicField name="*_firstName" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_surname" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_fullName" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_name" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_gender" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_organization" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_title" type="string" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_firstName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_surname" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_fullName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_name" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_gender" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_organization" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_title" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_nameId" type="string" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_nameAuth" type="string" indexed="true" stored="false" multiValued="true"/>
 
 	<!-- time -->
-	<dynamicField name="*_fromTime" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_toTime" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_decade" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_century" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_fromPeriodName" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_toPeriodName" type="string" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_fromTime" type="tint" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_toTime" type="tint" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_decade" type="tint" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_century" type="tint" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_fromPeriodName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_toPeriodName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_fromPeriodId" type="string" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_toPeriodId" type="string" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_periodAuth" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_eventName" type="string" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_eventName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_eventAuth" type="string" indexed="true" stored="false" multiValued="true"/>
 	
         
@@ -726,14 +726,20 @@
 	<!-- tyvärr verkar man inte kunna kopiera i steg, tex från item* till item till text
 	     utan man måste definera allt igen för text -->
 
-	<!-- item, allt som har med objektet att göra
-	     TODO: fyll i rätt index ett och ett och använd också nedan, annars blir tex http ett välanvänt ord... -->
-	<copyField source="item*" dest="item"/>
-	<!--
-   <copyField source="itemName" dest="item"/>
-   <copyField source="itemTitle" dest="item"/>
-   <copyField source="itemDescription" dest="item"/>
-   -->
+	<!-- item, allt som har med objektet att göra -->
+	<copyField source="itemType" dest="item"/>
+	<copyField source="itemClassName" dest="item"/>
+	<copyField source="itemName" dest="item"/>
+	<copyField source="itemSpecification" dest="item"/>
+	<copyField source="itemTitle" dest="item"/>
+	<copyField source="itemDescription" dest="item"/>
+	<copyField source="itemKeyWord" dest="item"/>
+	<copyField source="itemMotiveWord" dest="item"/>
+	<copyField source="itemMaterial" dest="item"/>
+	<copyField source="itemTechnique" dest="item"/>
+	<copyField source="itemStyle" dest="item"/>
+	<copyField source="itemColor" dest="item"/>
+
 	<!-- place, allt som har med geografi att göra -->
 	<copyField source="placeName" dest="place"/>
 	<copyField source="countyName" dest="place"/>
@@ -775,7 +781,18 @@
 	<copyField source="contextLabel" dest="text"/>
 
 	<!-- item, allt som har med objektet att göra -->
-   	<copyField source="item*" dest="text"/>
+	<copyField source="itemType" dest="text"/>
+	<copyField source="itemClassName" dest="text"/>
+	<copyField source="itemName" dest="text"/>
+	<copyField source="itemSpecification" dest="text"/>
+	<copyField source="itemTitle" dest="text"/>
+	<copyField source="itemDescription" dest="text"/>
+	<copyField source="itemKeyWord" dest="text"/>
+	<copyField source="itemMotiveWord" dest="text"/>
+	<copyField source="itemMaterial" dest="text"/>
+	<copyField source="itemTechnique" dest="text"/>
+	<copyField source="itemStyle" dest="text"/>
+	<copyField source="itemColor" dest="text"/>
 
    	<!-- place, allt som har med geografi att göra -->
 	<copyField source="placeName" dest="text"/>
@@ -819,7 +836,18 @@
    <copyField source="contextLabel" dest="strict"/>
    
 	<!-- item, allt som har med objektet att göra -->
-   	<copyField source="item*" dest="strict"/>
+	<copyField source="itemType" dest="strict"/>
+	<copyField source="itemClassName" dest="strict"/>
+	<copyField source="itemName" dest="strict"/>
+	<copyField source="itemSpecification" dest="strict"/>
+	<copyField source="itemTitle" dest="strict"/>
+	<copyField source="itemDescription" dest="strict"/>
+	<copyField source="itemKeyWord" dest="strict"/>
+	<copyField source="itemMotiveWord" dest="strict"/>
+	<copyField source="itemMaterial" dest="strict"/>
+	<copyField source="itemTechnique" dest="strict"/>
+	<copyField source="itemStyle" dest="strict"/>
+	<copyField source="itemColor" dest="strict"/>
 
    	<!-- place, allt som har med geografi att göra -->
 	<copyField source="placeName" dest="strict"/>
