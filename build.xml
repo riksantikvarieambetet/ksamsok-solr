@@ -164,8 +164,19 @@
         </javadoc>
     </target>
 
-	<target name="RAA-RPM" depends="war" description="Skapa rpm för raä:s driftmiljö">
+	<target name="replication-master">
+		<property name="solr.replication.snippet" value="${solr.master.conf}" />
+		<property name="solr.replication.rpm.suffix" value="master" />
+	</target>
 
+	<target name="replication-slave">
+		<property name="solr.replication.snippet" value="${solr.slave.conf}" />
+		<property name="solr.replication.rpm.suffix" value="slave" />
+	</target>
+
+	<target name="base-RAA-RPM" depends="war">
+		<fail unless="solr.replication.snippet" message="Ingen replikeringskonf"/>
+		<fail unless="solr.replication.rpm.suffix" message="Ingen suffix-egenskap satt"/>
 		<!-- skapa RPM-struktur -->
 		<mkdir dir="${project.build.dir}/rpm/RPMS" />
 		<mkdir dir="${project.build.dir}/rpm/SPECS" />
@@ -174,7 +185,11 @@
 		<mkdir dir="${project.build.dir}/rpm/SRPMS" />
 		<mkdir dir="${project.build.dir}/rpm/INSTALL" />
 
-		<copy todir="${project.build.dir}/rpm/SPECS" file="rpm/ksamsok-solr.spec" />
+		<copy todir="${project.build.dir}/rpm/SPECS" file="rpm/ksamsok-solr.spec">
+			<filterset>
+				<filter token="RPM_SUFFIX" value="${solr.replication.rpm.suffix}"/>
+			</filterset>
+		</copy>
 
 		<!-- kopiera in så som det ska se ut sen efter installation -->
 		<copy todir="${project.build.dir}/rpm/SOURCES/">
@@ -183,12 +198,10 @@
 			</fileset>
 		</copy>
 		<copy todir="${project.build.dir}/rpm/SOURCES/">
-			<!--
-			<fileset dir="rpm">
-				<include name="solr.xml"/>
-			</fileset>
-			-->
 			<fileset dir="solr-home" />
+			<filterset>
+				<filter token="SOLR_REPLICATION" value="${solr.replication.snippet}"/>
+			</filterset>
 		</copy>
 
 		<!-- Skapa själva rpm-filen -->
@@ -206,6 +219,12 @@
     	    </fileset>
     	</copy>
 
+	</target>
+
+	<target name="RAA-RPM" depends="replication-master,base-RAA-RPM" description="Skapa rpm för raä:s driftmiljö">
+	</target>
+
+	<target name="RAA-RPM-SLAVE" depends="replication-slave,base-RAA-RPM" description="Skapa rpm för raä:s driftmiljö, replikeringsslav">
 	</target>
 
 </project>
