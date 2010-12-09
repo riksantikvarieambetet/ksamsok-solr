@@ -50,7 +50,7 @@ rm -rf /usr/local/tomcat8080/webapps/solr
 %files
 %defattr(-,tomcat,nobody)
 %attr(0644,tomcat,nobody) /usr/local/tomcat8080/webapps/solr.war
-%attr(0644,tomcat,nobody) /var/ksamsok-solr
+%attr(0744,tomcat,nobody) /var/ksamsok-solr
 
 %changelog
 * Mon Dec 6 2010 ant
