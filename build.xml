@@ -54,14 +54,15 @@
     	<mkdir dir="${basedir}/src"/>
         <mkdir dir="${basedir}/lib"/>
 
-        <mkdir dir="${project.build.dir}"/>
-		<mkdir dir="${project.build.dir}/lib"/>
-		<mkdir dir="${project.build.dir}/war"/>
     </target>
 
     <target name="compile" depends="init"
 		description="Kompilerar java-klasser.">
-        <javac srcdir="${project.src.dir}"
+        <mkdir dir="${project.build.dir}"/>
+		<mkdir dir="${project.build.dir}/lib"/>
+		<mkdir dir="${project.build.dir}/war"/>
+
+    	<javac srcdir="${project.src.dir}"
             destdir="${project.build.dir}"
             classpathref="project.classpath"
             debug="${javac.debug}" 
@@ -164,17 +165,17 @@
         </javadoc>
     </target>
 
-	<target name="replication-master">
+	<target name="replication-master" depends="init">
 		<property name="solr.replication.snippet" value="${solr.master.conf}" />
 		<property name="solr.replication.rpm.suffix" value="master" />
 	</target>
 
-	<target name="replication-slave">
+	<target name="replication-slave" depends="init">
 		<property name="solr.replication.snippet" value="${solr.slave.conf}" />
 		<property name="solr.replication.rpm.suffix" value="slave" />
 	</target>
 
-	<target name="base-RAA-RPM" depends="war">
+	<target name="base-RAA-RPM" depends="clean,war">
 		<fail unless="solr.replication.snippet" message="Ingen replikeringskonf"/>
 		<fail unless="solr.replication.rpm.suffix" message="Ingen suffix-egenskap satt"/>
 		<!-- skapa RPM-struktur -->
