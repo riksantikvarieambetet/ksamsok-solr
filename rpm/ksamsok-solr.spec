@@ -1,5 +1,5 @@
 %define ver 1.0.0
-%define rel 01
+%define rel 02
 
 Summary: Raä K-Samsök, solr-instans (@RPM_SUFFIX@)
 Name: raa-ksamsok_solr_@RPM_SUFFIX@
