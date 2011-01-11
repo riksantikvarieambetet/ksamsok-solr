@@ -1,13 +1,13 @@
-# Solr för K-samsök
+# Solr fï¿½r K-samsï¿½k
 
-Inställningarna är som vanligt anpassade för driftförhållanden så för utveckling måste några
-saker sättas upp. Default är att rpm-installationen lägger dessa saker i /var/ksamsok-solr 
+Instï¿½llningarna ï¿½r som vanligt anpassade fï¿½r driftfï¿½rhï¿½llanden sï¿½ fï¿½r utveckling mï¿½ste nï¿½gra
+saker sï¿½ttas upp. Default ï¿½r att rpm-installationen lï¿½gger dessa saker i /var/lucene-index 
 
-Skapa en local.properties och lägg in solr.home så att den pekar ut [ksamsok-solr]/solr-home, typ
+Skapa en local.properties och lï¿½gg in solr.home sï¿½ att den pekar ut [ksamsok-solr]/solr-home, typ
 
 solr.home=/path/to/ksamsok-solr/solr-home
 
-Lägg också in en flagga i catalina.sh/bat för att tala om var indexfilerna ska lagras (annars
+Lï¿½gg ocksï¿½ in en flagga i catalina.sh/bat fï¿½r att tala om var indexfilerna ska lagras (annars
 hamnar de antingen i cvs-katalogen eller under aktuel arbetskatalog):
 
 -Dsolr.data.dir=/path/to/a/good/storing/place
