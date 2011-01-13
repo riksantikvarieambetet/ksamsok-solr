@@ -576,6 +576,7 @@
    <field name="_rdf" type="binary" indexed="false" stored="true" required="true" compressed="true"/>
    <field name="_lon" type="tdouble" indexed="true" stored="true" required="false" />
    <field name="_lat" type="tdouble" indexed="true" stored="true" required="false" />
+   <field name="_relations" type="string" indexed="false" stored="true" multiValued="true" />
    
    <field name="strict" type="text_ws" indexed="true" stored="false" multiValued="true"/>
 
