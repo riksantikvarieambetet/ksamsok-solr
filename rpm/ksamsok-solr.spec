@@ -50,8 +50,7 @@ rm -rf /usr/local/tomcat8080/webapps/solr
 %files
 %defattr(-,tomcat,nobody)
 %attr(0644,tomcat,nobody) /usr/local/tomcat8080/webapps/solr.war
-%attr(0744,tomcat,nobody) /var/lucene-index/data
-%attr(0744,tomcat,nobody) /var/lucene-index/conf
+%attr(0744,tomcat,nobody) /var/lucene-index
 
 %changelog
 * Mon Dec 6 2010 ant
