@@ -467,7 +467,7 @@
    <field name="itemTitle" type="lowercase" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
    <field name="itemLabel" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
    <field name="itemType" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
-   <field name="itemClass" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+   <field name="itemClass" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
    <field name="itemClassName" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
    <field name="itemName" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true" />
    <field name="itemSpecification" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -477,8 +477,8 @@
    <field name="itemTechnique" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true" />
    <field name="itemStyle" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true" />
    <field name="itemColor" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true" />
-   <field name="itemNumber" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true" />
-   <field name="itemLicense" type="string" indexed="true" stored="false" omitNorms="true"/>
+   <field name="itemNumber" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true" />
+   <field name="itemLicense" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
    <field name="itemDescription" type="text" indexed="true" stored="false" multiValued="true"/>
    
 	<field name="subject" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -506,26 +506,26 @@
 	<field name="sameAs" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="visualizes" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	
-	<field name="mediaLicense" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="mediaLicense" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="mediaMotiveWord" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
-	<field name="serviceName" type="string" indexed="true" stored="false"/>
+	<field name="serviceName" type="lowercase" indexed="true" stored="false"/>
 	<field name="serviceOrganization" type="lowercase" indexed="true" stored="false"/>
 	<field name="createdDate" type="string" indexed="true" stored="false"/> <!-- TODO: date? -->
 	<field name="addedToIndexDate" type="string" indexed="true" stored="false"/> <!-- TODO: date? -->
 	<field name="lastChangedDate" type="string" indexed="true" stored="false"/> <!-- TODO: date? -->
-	<field name="thumbnailExists" type="string" indexed="true" stored="false"/>
-	<field name="geoDataExists" type="string" indexed="true" stored="false"/>
-	<field name="timeInfoExists" type="string" indexed="true" stored="false"/>
+	<field name="thumbnailExists" type="lowercase" indexed="true" stored="false"/>
+	<field name="geoDataExists" type="lowercase" indexed="true" stored="false"/>
+	<field name="timeInfoExists" type="lowercase" indexed="true" stored="false"/>
 	
-	<field name="contextType" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="contextType" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="contextLabel" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	
 	<!-- place -->
 	<field name="placeName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="cadastralUnit" type="lowercase" indexed="true" stored="false" multiValued="true"/>
-	<field name="placeTermId" type="string" indexed="true" stored="false" multiValued="true"/>
-	<field name="placeTermAuth" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="placeTermId" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<field name="placeTermAuth" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="continentName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="countryName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="countyName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
@@ -546,8 +546,8 @@
 	<field name="gender" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="organization" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="title" type="lowercase" indexed="true" stored="false" multiValued="true"/>
-	<field name="nameId" type="string" indexed="true" stored="false" multiValued="true"/>
-	<field name="nameAuth" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="nameId" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<field name="nameAuth" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 
 	<!-- time -->
 	<field name="fromTime" type="tint" indexed="true" stored="false" multiValued="true"/>
@@ -556,11 +556,11 @@
 	<field name="century" type="tint" indexed="true" stored="false" multiValued="true"/>
 	<field name="fromPeriodName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="toPeriodName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
-	<field name="fromPeriodId" type="string" indexed="true" stored="false" multiValued="true"/>
-	<field name="toPeriodId" type="string" indexed="true" stored="false" multiValued="true"/>
-	<field name="periodAuth" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="fromPeriodId" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<field name="toPeriodId" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<field name="periodAuth" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="eventName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
-	<field name="eventAuth" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="eventAuth" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 
 	
 	<!-- samlingsindex, fritext -->
@@ -639,8 +639,8 @@
     <!-- place -->
     <dynamicField name="*_placeName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_cadastralUnit" type="lowercase" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_placeTermId" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_placeTermAuth" type="string" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_placeTermId" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_placeTermAuth" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_continentName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_countryName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_countyName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
@@ -661,8 +661,8 @@
 	<dynamicField name="*_gender" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_organization" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_title" type="lowercase" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_nameId" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_nameAuth" type="string" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_nameId" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_nameAuth" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 
 	<!-- time -->
 	<dynamicField name="*_fromTime" type="tint" indexed="true" stored="false" multiValued="true"/>
@@ -671,11 +671,11 @@
 	<dynamicField name="*_century" type="tint" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_fromPeriodName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_toPeriodName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_fromPeriodId" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_toPeriodId" type="string" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_periodAuth" type="string" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_fromPeriodId" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_toPeriodId" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_periodAuth" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_eventName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
-	<dynamicField name="*_eventAuth" type="string" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_eventAuth" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	
         
    <dynamicField name="*_i"  type="int"    indexed="true"  stored="true"/>
@@ -777,7 +777,7 @@
 	<copyField source="*_toPeriodName" dest="time"/>
 	<copyField source="*_eventName" dest="time"/>
 	
-	<!-- det generella fritext-indexet, kopiera samma sak som ovan-->
+	<!-- det generella fritext-indexet, kopiera samma sak som ovan plus lite till -->
 	<!-- ********* text START ********** -->
 	<copyField source="contextLabel" dest="text"/>
 
@@ -830,6 +830,10 @@
 	<copyField source="*_fromPeriodName" dest="text"/>
 	<copyField source="*_toPeriodName" dest="text"/>
 	<copyField source="*_eventName" dest="text"/>
+
+	<!-- extra -->
+	<copyField source="serviceOrganization" dest="text"/>
+
    <!-- ********* text STOP ********** -->
    
    	<!-- samma som ovan fast ostammat-->
@@ -885,6 +889,10 @@
 	<copyField source="*_fromPeriodName" dest="strict"/>
 	<copyField source="*_toPeriodName" dest="strict"/>
 	<copyField source="*_eventName" dest="strict"/>
+
+	<!-- extra -->
+	<copyField source="serviceOrganization" dest="strict"/>
+
    <!-- ********* strict STOP ********** -->
 	
    <!-- Above, multiple source fields are copied to the [text] field. 
