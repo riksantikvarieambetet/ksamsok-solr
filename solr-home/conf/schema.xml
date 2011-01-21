@@ -565,9 +565,9 @@
 	
 	<!-- samlingsindex, fritext -->
 	<field name="item" type="text" indexed="true" stored="false" multiValued="true"/>
-	<field name="place" type="text" indexed="true" stored="false" multiValued="true"/>
+	<field name="place" type="text_ws" indexed="true" stored="false" multiValued="true"/>
 	<field name="time" type="text" indexed="true" stored="false" multiValued="true"/>
-	<field name="actor" type="text" indexed="true" stored="false" multiValued="true"/>
+	<field name="actor" type="text_ws" indexed="true" stored="false" multiValued="true"/>
 
    <field name="_service" type="string" indexed="true" stored="true" required="true" />
    <field name="_htmlurl" type="string" indexed="true" stored="true" required="true" />
