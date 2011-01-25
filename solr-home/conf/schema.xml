@@ -733,6 +733,7 @@
 	<copyField source="itemName" dest="item"/>
 	<copyField source="itemSpecification" dest="item"/>
 	<copyField source="itemTitle" dest="item"/>
+	<copyField source="itemLabel" dest="item"/>
 	<copyField source="itemDescription" dest="item"/>
 	<copyField source="itemKeyWord" dest="item"/>
 	<copyField source="itemMotiveWord" dest="item"/>
@@ -787,6 +788,7 @@
 	<copyField source="itemName" dest="text"/>
 	<copyField source="itemSpecification" dest="text"/>
 	<copyField source="itemTitle" dest="text"/>
+	<copyField source="itemLabel" dest="text"/>
 	<copyField source="itemDescription" dest="text"/>
 	<copyField source="itemKeyWord" dest="text"/>
 	<copyField source="itemMotiveWord" dest="text"/>
@@ -846,6 +848,7 @@
 	<copyField source="itemName" dest="strict"/>
 	<copyField source="itemSpecification" dest="strict"/>
 	<copyField source="itemTitle" dest="strict"/>
+	<copyField source="itemLabel" dest="strict"/>
 	<copyField source="itemDescription" dest="strict"/>
 	<copyField source="itemKeyWord" dest="strict"/>
 	<copyField source="itemMotiveWord" dest="strict"/>
