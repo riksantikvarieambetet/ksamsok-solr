@@ -835,6 +835,7 @@
 
 	<!-- extra -->
 	<copyField source="serviceOrganization" dest="text"/>
+	<copyField source="serviceName" dest="text"/>
 
    <!-- ********* text STOP ********** -->
    
@@ -895,6 +896,7 @@
 
 	<!-- extra -->
 	<copyField source="serviceOrganization" dest="strict"/>
+	<copyField source="serviceName" dest="strict"/>
 
    <!-- ********* strict STOP ********** -->
 	
