@@ -224,10 +224,10 @@
 	</target>
 
 	<!-- Här avgörs om man bygger en master eller slav -->
-	<target name="RAA-RPM" depends="replication-master,base-RAA-RPM" description="Skapa rpm för raä:s driftmiljö">
-	</target>
+	<!-- <target name="RAA-RPM" depends="replication-master,base-RAA-RPM" description="Skapa rpm för raä:s driftmiljö">
+	</target> -->
 
-	<!-- <target name="RAA-RPM" depends="replication-slave,base-RAA-RPM" description="Skapa rpm för raä:s driftmiljö, replikeringsslav">
-	</target>  -->
+	<target name="RAA-RPM" depends="replication-slave,base-RAA-RPM" description="Skapa rpm för raä:s driftmiljö, replikeringsslav">
+	</target>
 
 </project>
