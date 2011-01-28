@@ -419,7 +419,7 @@
     </fieldtype>
 
     <!-- lowercases the entire field value, keeping it as a single token.  -->
-    <fieldType name="lowercase" class="solr.TextField" positionIncrementGap="100">
+    <fieldType name="lowercase" class="solr.TextField" positionIncrementGap="100" sortMissingLast="true">
       <analyzer>
         <tokenizer class="solr.KeywordTokenizerFactory"/>
         <filter class="solr.LowerCaseFilterFactory" />
