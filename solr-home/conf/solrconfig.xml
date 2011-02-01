@@ -923,6 +923,9 @@
   -->
   <requestHandler name="/admin/" class="org.apache.solr.handler.admin.AdminHandlers" />
 
+  <!-- index and disk info -->
+  <requestHandler name="/admin/indexdiskinfo" class="se.raa.ksamsok.solr.IndexDiskInfoHandler" />
+
   <!-- ping/healthcheck -->
   <requestHandler name="/admin/ping" class="PingRequestHandler">
     <lst name="defaults">
