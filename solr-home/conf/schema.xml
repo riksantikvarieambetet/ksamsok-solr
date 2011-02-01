@@ -727,6 +727,12 @@
 	<!-- tyvärr verkar man inte kunna kopiera i steg, tex från item* till item till text
 	     utan man måste definera allt igen för text -->
 
+	<!-- Notera att item, place, actor, time, text och strict inte längre byggs upp av k-samsök
+	     (de är bortkommenterade) utan att de istället byggs upp av copyField-direktiven nedan.
+	     Dock så kopieras/distribueras kontext-indexen fortfarande till både tex fromTime och
+	     create_fromTime vilket gör att bara ett av dessa index ska kopieras till fritextindex.
+	-->
+
 	<!-- item, allt som har med objektet att göra -->
 	<copyField source="itemType" dest="item"/>
 	<copyField source="itemClassName" dest="item"/>
@@ -748,11 +754,6 @@
 	<copyField source="municipalityName" dest="place"/>
 	<copyField source="provinceName" dest="place"/>
 	<copyField source="parishName" dest="place"/>
-	<copyField source="*_placeName" dest="place"/>
-	<copyField source="*_countyName" dest="place"/>
-	<copyField source="*_municipalityName" dest="place"/>
-	<copyField source="*_provinceName" dest="place"/>
-	<copyField source="*_parishName" dest="place"/>
 
 	<!-- actor, allt som har med aktörer att göra -->
 	<copyField source="firstName" dest="actor"/>
@@ -760,11 +761,6 @@
 	<copyField source="fullName" dest="actor"/>
 	<copyField source="name" dest="actor"/>
 	<copyField source="organization" dest="actor"/>
-	<copyField source="*_firstName" dest="actor"/>
-	<copyField source="*_surname" dest="actor"/>
-	<copyField source="*_fullName" dest="actor"/>
-	<copyField source="*_name" dest="actor"/>
-	<copyField source="*_organization" dest="actor"/>
 
 	<!-- time, allt som har med tid att göra -->
 	<copyField source="fromTime" dest="time"/>
@@ -772,11 +768,6 @@
 	<copyField source="fromPeriodName" dest="time"/>
 	<copyField source="toPeriodName" dest="time"/>
 	<copyField source="eventName" dest="time"/>
-	<copyField source="*_fromTime" dest="time"/>
-	<copyField source="*_toTime" dest="time"/>
-	<copyField source="*_fromPeriodName" dest="time"/>
-	<copyField source="*_toPeriodName" dest="time"/>
-	<copyField source="*_eventName" dest="time"/>
 	
 	<!-- det generella fritext-indexet, kopiera samma sak som ovan plus lite till -->
 	<!-- ********* text START ********** -->
@@ -803,11 +794,6 @@
 	<copyField source="municipalityName" dest="text"/>
 	<copyField source="provinceName" dest="text"/>
 	<copyField source="parishName" dest="text"/>
-	<copyField source="*_placeName" dest="text"/>
-	<copyField source="*_countyName" dest="text"/>
-	<copyField source="*_municipalityName" dest="text"/>
-	<copyField source="*_provinceName" dest="text"/>
-	<copyField source="*_parishName" dest="text"/>
 
 	<!-- actor, allt som har med aktörer att göra -->
 	<copyField source="firstName" dest="text"/>
@@ -815,11 +801,6 @@
 	<copyField source="fullName" dest="text"/>
 	<copyField source="name" dest="text"/>
 	<copyField source="organization" dest="text"/>
-	<copyField source="*_firstName" dest="text"/>
-	<copyField source="*_surname" dest="text"/>
-	<copyField source="*_fullName" dest="text"/>
-	<copyField source="*_name" dest="text"/>
-	<copyField source="*_organization" dest="text"/>
 
 	<!-- time, allt som har med tid att göra -->
 	<copyField source="fromTime" dest="text"/>
@@ -827,11 +808,6 @@
 	<copyField source="fromPeriodName" dest="text"/>
 	<copyField source="toPeriodName" dest="text"/>
 	<copyField source="eventName" dest="text"/>
-	<copyField source="*_fromTime" dest="text"/>
-	<copyField source="*_toTime" dest="text"/>
-	<copyField source="*_fromPeriodName" dest="text"/>
-	<copyField source="*_toPeriodName" dest="text"/>
-	<copyField source="*_eventName" dest="text"/>
 
 	<!-- extra -->
 	<copyField source="serviceOrganization" dest="text"/>
@@ -864,11 +840,6 @@
 	<copyField source="municipalityName" dest="strict"/>
 	<copyField source="provinceName" dest="strict"/>
 	<copyField source="parishName" dest="strict"/>
-	<copyField source="*_placeName" dest="strict"/>
-	<copyField source="*_countyName" dest="strict"/>
-	<copyField source="*_municipalityName" dest="strict"/>
-	<copyField source="*_provinceName" dest="strict"/>
-	<copyField source="*_parishName" dest="strict"/>
 
 	<!-- actor, allt som har med aktörer att göra -->
 	<copyField source="firstName" dest="strict"/>
@@ -876,11 +847,6 @@
 	<copyField source="fullName" dest="strict"/>
 	<copyField source="name" dest="strict"/>
 	<copyField source="organization" dest="strict"/>
-	<copyField source="*_firstName" dest="strict"/>
-	<copyField source="*_surname" dest="strict"/>
-	<copyField source="*_fullName" dest="strict"/>
-	<copyField source="*_name" dest="strict"/>
-	<copyField source="*_organization" dest="strict"/>
 
 	<!-- time, allt som har med tid att göra -->
 	<copyField source="fromTime" dest="strict"/>
@@ -888,11 +854,6 @@
 	<copyField source="fromPeriodName" dest="strict"/>
 	<copyField source="toPeriodName" dest="strict"/>
 	<copyField source="eventName" dest="strict"/>
-	<copyField source="*_fromTime" dest="strict"/>
-	<copyField source="*_toTime" dest="strict"/>
-	<copyField source="*_fromPeriodName" dest="strict"/>
-	<copyField source="*_toPeriodName" dest="strict"/>
-	<copyField source="*_eventName" dest="strict"/>
 
 	<!-- extra -->
 	<copyField source="serviceOrganization" dest="strict"/>
