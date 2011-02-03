@@ -860,6 +860,14 @@
 	<copyField source="serviceName" dest="strict"/>
 
    <!-- ********* strict STOP ********** -->
+
+   <!-- ********* BOOSTING/RELEVANSRANKNING -->
+   <!--
+    	TODO: här skulle man kunna vilja ange tex <copyField source="" dest="" times="x"...
+    	      för att boosta termfrekvens men nån sån möjlighet finns fn ej.
+    	      Därför har en update processor (boost) lagts till som sköter detta.
+    	      Dess konf ligger i solrconfig.xml (TFBoostUpdateProcessorFactory)
+    -->
 	
    <!-- Above, multiple source fields are copied to the [text] field. 
 	  Another way to map multiple source fields to the same 
