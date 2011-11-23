@@ -753,6 +753,7 @@
 
 	<!-- place, allt som har med geografi att göra -->
 	<copyField source="placeName" dest="place"/>
+	<copyField source="continentName" dest="place"/>
 	<copyField source="countyName" dest="place"/>
 	<copyField source="countryName" dest="place"/>
 	<copyField source="municipalityName" dest="place"/>
@@ -794,6 +795,7 @@
 
    	<!-- place, allt som har med geografi att göra -->
 	<copyField source="placeName" dest="text"/>
+	<copyField source="continentName" dest="text"/>
 	<copyField source="countyName" dest="text"/>
 	<copyField source="countryName" dest="text"/>
 	<copyField source="municipalityName" dest="text"/>
@@ -841,6 +843,7 @@
 
    	<!-- place, allt som har med geografi att göra -->
 	<copyField source="placeName" dest="strict"/>
+	<copyField source="continentName" dest="strict"/>
 	<copyField source="countyName" dest="strict"/>
 	<copyField source="countryName" dest="strict"/>
 	<copyField source="municipalityName" dest="strict"/>
