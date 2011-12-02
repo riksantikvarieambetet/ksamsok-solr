@@ -505,7 +505,21 @@
 	<field name="isVisualizedBy" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="sameAs" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="visualizes" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	
+
+	<field name="is_former_or_current_owner_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="has_former_or_current_owner" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="is_former_or_current_keeper_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="has_former_or_current_keeper" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="has_created" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="was_created_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="has_right_on" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="right_held_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+
+	<field name="child" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="parent" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="mother" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="father" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+
 	<field name="mediaLicense" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="mediaMotiveWord" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
@@ -679,6 +693,11 @@
 	<dynamicField name="*_periodAuth" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_eventName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_eventAuth" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+
+	<dynamicField name="*_has_former_or_current_owner" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_has_former_or_current_keeper" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_was_created_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_right_held_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	
         
    <dynamicField name="*_i"  type="int"    indexed="true"  stored="true"/>
