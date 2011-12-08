@@ -467,6 +467,7 @@
    <field name="itemTitle" type="lowercase" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
    <field name="itemLabel" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
    <field name="itemType" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
+   <field name="itemSuperType" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
    <field name="itemClass" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
    <field name="itemClassName" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
    <field name="itemName" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true" />
@@ -486,7 +487,7 @@
 	<field name="dataQuality" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
 	<field name="mediaType" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="theme" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	
+	<field name="protocolVersion" type="double" indexed="true" stored="false" omitNorms="true" multiValued="false"/>
 
 	<field name="relUri" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="containsInformationAbout" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -505,6 +506,8 @@
 	<field name="isVisualizedBy" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="sameAs" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="visualizes" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="isMentionedBy" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="mentions" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	<field name="is_former_or_current_owner_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="has_former_or_current_owner" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -514,6 +517,8 @@
 	<field name="was_created_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="has_right_on" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="right_held_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="is_current_or_former_member_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="has_current_or_former_member" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	<field name="child" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="parent" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -533,6 +538,7 @@
 	<field name="timeInfoExists" type="lowercase" indexed="true" stored="false"/>
 	
 	<field name="contextType" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<field name="contextSuperType" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="contextLabel" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	
 	<!-- place -->
@@ -757,6 +763,7 @@
 
 	<!-- item, allt som har med objektet att göra -->
 	<copyField source="itemType" dest="item"/>
+	<copyField source="itemSuperType" dest="item"/>
 	<copyField source="itemClassName" dest="item"/>
 	<copyField source="itemName" dest="item"/>
 	<copyField source="itemSpecification" dest="item"/>
@@ -799,6 +806,7 @@
 
 	<!-- item, allt som har med objektet att göra -->
 	<copyField source="itemType" dest="text"/>
+	<copyField source="itemSuperType" dest="text"/>
 	<copyField source="itemClassName" dest="text"/>
 	<copyField source="itemName" dest="text"/>
 	<copyField source="itemSpecification" dest="text"/>
@@ -847,6 +855,7 @@
    
 	<!-- item, allt som har med objektet att göra -->
 	<copyField source="itemType" dest="strict"/>
+	<copyField source="itemSuperType" dest="strict"/>
 	<copyField source="itemClassName" dest="strict"/>
 	<copyField source="itemName" dest="strict"/>
 	<copyField source="itemSpecification" dest="strict"/>
