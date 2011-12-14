@@ -509,6 +509,15 @@
 	<field name="isMentionedBy" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="mentions" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
+	<field name="is_current_or_former_member_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="has_current_or_former_member" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+
+	<field name="child" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="parent" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="mother" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="father" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+
+	<!-- roller (kontextrelationer) -->
 	<field name="is_former_or_current_owner_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="has_former_or_current_owner" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="is_former_or_current_keeper_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -517,13 +526,57 @@
 	<field name="was_created_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="has_right_on" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="right_held_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="is_current_or_former_member_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="has_current_or_former_member" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
-	<field name="child" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="parent" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="mother" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="father" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="client" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="composer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="author" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="architect" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="inventor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="scenographer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="designer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="producer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="organizer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="director" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="photographer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="painter" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="builder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="masterBuilder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="constructionClient" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="engraver" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="mintmaster" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="artist" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="designEngineer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="carpenter" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="mason" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="technician" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="publisher" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="publicist" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="musician" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="actorActress" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="printer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="signer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="finder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="abandonee" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="intermediary" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="buyer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="seller" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="generalAgent" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="donor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="depositor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="reseller" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="inventoryTaker" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="excavator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="examinator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="conservator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="archiveContributor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="interviewer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="informant" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="patentHolder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="user" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="scannerOperator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="pictureEditor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="employer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="marriedTo" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	<field name="mediaLicense" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="mediaMotiveWord" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -700,12 +753,63 @@
 	<dynamicField name="*_eventName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_eventAuth" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 
+	<!-- roller -->
 	<dynamicField name="*_has_former_or_current_owner" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<dynamicField name="*_has_former_or_current_keeper" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<dynamicField name="*_was_created_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<dynamicField name="*_right_held_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	
-        
+	<dynamicField name="*_client" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_composer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_author" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_architect" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_inventor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_scenographer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_designer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_producer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_organizer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_director" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_photographer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_painter" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_builder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_masterBuilder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_constructionClient" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_engraver" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_mintmaster" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_artist" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_designEngineer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_carpenter" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_mason" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_technician" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_publisher" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_publicist" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_musician" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_actorActress" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_printer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_signer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_finder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_abandonee" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_intermediary" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_buyer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_seller" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_generalAgent" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_donor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_depositor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_reseller" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_inventoryTaker" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_excavator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_examinator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_conservator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_archiveContributor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_interviewer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_informant" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_patentHolder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_user" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_scannerOperator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_pictureEditor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_employer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<dynamicField name="*_marriedTo" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+
    <dynamicField name="*_i"  type="int"    indexed="true"  stored="true"/>
    <dynamicField name="*_s"  type="string"  indexed="true"  stored="true"/>
    <dynamicField name="*_l"  type="long"   indexed="true"  stored="true"/>
