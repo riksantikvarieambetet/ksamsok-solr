@@ -518,13 +518,9 @@
 	<field name="father" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	<!-- roller (kontextrelationer) -->
-	<field name="is_former_or_current_owner_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="has_former_or_current_owner" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="is_former_or_current_keeper_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="has_former_or_current_keeper" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="has_created" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="was_created_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="has_right_on" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="right_held_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	<field name="client" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
