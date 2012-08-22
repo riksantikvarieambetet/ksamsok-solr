@@ -1,5 +1,5 @@
-%define ver 1.0.0
-%define rel 21
+%define ver 1.0.1
+%define rel 01
 
 Summary: Raä K-Samsök, solr-instans (@RPM_SUFFIX@)
 Name: raa-ksamsok_solr_@RPM_SUFFIX@
@@ -57,3 +57,5 @@ rm -rf /usr/local/tomcat8080/webapps/solr
 - Master/slave
 * Fri Dec 11 2009 ant
 - Uppdaterat till nya RPM-metodiken
+* Wed Aug 22 2012 ant
+- Konverterat från ISO-8859-1 till UTF-8, build.xml översatt till engelska

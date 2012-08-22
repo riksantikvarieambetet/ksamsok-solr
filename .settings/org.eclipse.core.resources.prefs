@@ -1,3 +1,16 @@
-#Tue Aug 21 12:17:43 CEST 2012
+#Wed Aug 22 12:48:10 CEST 2012
 eclipse.preferences.version=1
+encoding//solr-home/conf/mapping-ISOLatin1Accent.txt=UTF-8
+encoding//solr-home/conf/protwords.txt=UTF-8
+encoding//solr-home/conf/schema.xml=UTF-8
+encoding//solr-home/conf/solrconfig.xml=UTF-8
+encoding//solr-home/conf/spellings.txt=UTF-8
+encoding//solr-home/conf/stopwords.txt=UTF-8
+encoding//solr-home/conf/synonyms.txt=UTF-8
+encoding//src/se/raa/ksamsok/solr/IndexDiskInfoHandler.java=UTF-8
+encoding//src/se/raa/ksamsok/solr/TFBoost.java=UTF-8
+encoding//src/se/raa/ksamsok/solr/TFBoostUpdateProcessor.java=UTF-8
+encoding//src/se/raa/ksamsok/solr/TFBoostUpdateProcessorFactory.java=UTF-8
 encoding/<project>=UTF-8
+encoding/build.properties=UTF-8
+encoding/build.xml=UTF-8

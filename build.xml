@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="solr" basedir="." default="RAA-UTV-RPM">
 
     <description>
-        Ant-byggfil, ksamsok - solr.
+        Ant-buildfile, ksamsok - solr.
     </description>
 
     <target name="init">
@@ -35,12 +35,13 @@
         </path>
 
         <fileset id="deploy.jars" dir="${project.src.lib.dir}">
-        	<!-- lägg till extra jar-filer här som behövs vid deploy, de som redan finns i solr.war
-        	     men som kanske finns i lib för att kunna bygga ska inte tas med -->
+        	<!-- add extra jar-files at this poin, if needed at deploy, 
+        	those already existing in the lib dir,
+        	should not be included in the solr.war -->
             <include name="" />
         </fileset>
 
-		<!-- Konfigurationsfiler -->
+		<!-- Configuration files -->
         <patternset id="conf.pattern">
         	<include name="**/*.properties"/>
         	<exclude name="unpackaged/**" />
@@ -67,7 +68,7 @@
             classpathref="project.classpath"
             debug="${javac.debug}" 
             optimize="${javac.optimize}"
-            encoding="ISO-8859-1">
+            encoding="UTF-8">
             <patternset>
                 <include name="**/*.java"/>
             	<exclude name="**/*Test.java"/>
@@ -76,7 +77,7 @@
         </javac>
     </target>
 
-	<!-- Bygger en JAR -->
+	<!-- Builds a JAR -->
 	<target name="jar" depends="init,compile,conf-copy"
 		description="Skapar en JAR.">
 		<jar jarfile="${project.build.dir}/lib/${jar.name}"
@@ -90,8 +91,8 @@
 		</jar>
 	</target>
 
-	<!-- Bygger en WAR -->
-	<target name="war" depends="jar" description="Skapar en WAR för deployment och lägger in log4j bla.">
+	<!-- Builds a WAR -->
+	<target name="war" depends="jar" description="Create a WAR for deployment och add it in log4j i.a.">
 		<unwar dest="${project.build.dir}/unpacked">
 			<fileset dir="${basedir}/solr">
 				<include name="apache-solr-*.war"/>
@@ -115,13 +116,13 @@
 				<filter token="SOLR_HOME" value="${solr.home}"/>
 			</filterset>
 		</copy>
-		<echo>Kopierar projektets jar-fil</echo>
+		<echo>Copies the projects jar-file</echo>
 		<copy todir="${project.build.dir}/unpacked/WEB-INF/lib">
 			<fileset dir="${project.build.dir}/lib">
 				<include name="${project.name}-*.jar"/>
 			</fileset>
 		</copy>
-		<echo>Kopierar eventuella extra jar-filer</echo>
+		<echo>Copies any extra jar-files</echo>
 		<copy todir="${project.build.dir}/unpacked/WEB-INF/lib" verbose="true">
 			<fileset refid="deploy.jars" />
 		</copy>
@@ -135,13 +136,13 @@
         </copy>
     </target>
 
-    <target name="build" depends="init" description="Bygger.">
+    <target name="build" depends="init" description="Builds.">
         <antcall target="compile"/>
         <antcall target="conf-copy"/>
     </target>
 
     <target name="clean" depends="init"
-        description="Tar bort build-katalogen.">
+        description="Removes the build catalogue.">
     	<mkdir dir="${project.build.dir}"/>
         <delete includeemptydirs="true" >
             <fileset dir="${project.build.dir}">
@@ -153,13 +154,13 @@
     </target>
 
     <target name="javadoc" depends="init"
-		description="Genererar javadoc.">
+		description="Generates javadoc.">
         <javadoc sourcepath="${project.src.dir}"
         	classpathref="project.classpath"
             destdir="${project.build.dir}/javadoc"
             packagenames="se.raa.ksamsok.*"
             defaultexcludes="yes"
-            windowtitle="K-samsök-solr"
+            windowtitle="K-samsok-solr"
             access="package"
             use="true"
             >
@@ -177,9 +178,9 @@
 	</target>
 
 	<target name="base-RAA-UTV-RPM" depends="clean,war">
-		<fail unless="solr.replication.snippet" message="Ingen replikeringskonf"/>
-		<fail unless="solr.replication.rpm.suffix" message="Ingen suffix-egenskap satt"/>
-		<!-- skapa RPM-struktur -->
+		<fail unless="solr.replication.snippet" message="No replication conf"/>
+		<fail unless="solr.replication.rpm.suffix" message="No suffix-property sat"/>
+		<!-- create RPM-structure -->
 		<mkdir dir="${project.build.dir}/rpm/RPMS" />
 		<mkdir dir="${project.build.dir}/rpm/SPECS" />
 		<mkdir dir="${project.build.dir}/rpm/SOURCES" />
@@ -192,8 +193,8 @@
 				<filter token="RPM_SUFFIX" value="${solr.replication.rpm.suffix}"/>
 			</filterset>
 		</copy>
-
-		<!-- kopiera in så som det ska se ut sen efter installation -->
+		
+		<!-- paste here to the structure used after install-->
 		<copy todir="${project.build.dir}/rpm/SOURCES/">
 			<fileset dir="${project.build.dir}/war">
 				<include name="solr.war"/>
@@ -206,7 +207,7 @@
 			</filterset>
 		</copy>
 
-		<!-- Skapa själva rpm-filen -->
+		<!-- Create the actual rpm-file -->
     	<echo message="${project.build.dir}"/>
 		<rpm
 			specFile="ksamsok-solr.spec"
@@ -214,7 +215,7 @@
 		    cleanBuildDir="true"
 		    failOnError="true"/>
 
-    	<!-- Lägg upp rpm-filen i ${project.build.rpm.dir} -->
+    	<!-- Add the rpm-file in ${project.build.rpm.dir} -->
     	<copy todir="${project.build.dir}/rpm">
     		<fileset dir="${project.build.dir}/rpm/RPMS/x86_64">
     	    	<include name="*.rpm"/>
@@ -223,11 +224,11 @@
 
 	</target>
 
-	<!-- Här avgörs om man bygger en master eller slav -->
-	<!--<target name="RAA-RPM" depends="replication-master,base-RAA-RPM" description="Skapa rpm för raä:s driftmiljö">
+	<!-- Decide here if a master or slave is to be built -->
+	<!--<target name="RAA-RPM" depends="replication-master,base-RAA-RPM" description="Create rpm for raa:s operating environment">
 	</target>-->
 
-	<target name="RAA-UTV-RPM" depends="replication-slave,base-RAA-UTV-RPM" description="Skapa rpm för raä:s driftmiljö, replikeringsslav">
+	<target name="RAA-UTV-RPM" depends="replication-slave,base-RAA-UTV-RPM" description="Create rpm for raa:s operating environment, replicating slave">
 	</target>
 
 </project>
