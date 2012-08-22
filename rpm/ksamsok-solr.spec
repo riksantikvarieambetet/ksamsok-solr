@@ -53,9 +53,9 @@ rm -rf /usr/local/tomcat8080/webapps/solr
 %attr(0744,tomcat,nobody) /var/lucene-index
 
 %changelog
+* Wed Aug 22 2012 ant
+- Konverterat från ISO-8859-1 till UTF-8, build.xml översatt till engelska
 * Mon Dec 6 2010 ant
 - Master/slave
 * Fri Dec 11 2009 ant
 - Uppdaterat till nya RPM-metodiken
-* Wed Aug 22 2012 ant
-- Konverterat från ISO-8859-1 till UTF-8, build.xml översatt till engelska
