@@ -1,5 +1,5 @@
-%define ver 1.0.1
-%define rel 03
+%define ver 1.0.2
+%define rel 0
 
 Summary: Raä K-Samsök, solr-instans (@RPM_SUFFIX@)
 Name: raa-ksamsok_solr_@RPM_SUFFIX@
@@ -22,7 +22,6 @@ Raä K-Samsok, solr-instans (@RPM_SUFFIX@)
 rm -rf $RPM_BUILD_ROOT
 
 mkdir -p -m755 $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
-#mkdir -p -m755 $RPM_BUILD_ROOT/usr/local/tomcat8080/conf/Catalina/localhost
 mkdir -p -m755 $RPM_BUILD_ROOT/var/lucene-index/conf
 
 install -m755 $RPM_SOURCE_DIR/solr.war $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
