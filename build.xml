@@ -177,7 +177,7 @@
 		<property name="solr.replication.rpm.suffix" value="slave" />
 	</target>
 
-	<target name="base-RAA-UTV-RPM" depends="clean,war">
+	<target name="base-RAA-RPM" depends="clean,war">
 		<fail unless="solr.replication.snippet" message="No replication conf"/>
 		<fail unless="solr.replication.rpm.suffix" message="No suffix-property sat"/>
 		<!-- create RPM-structure -->
@@ -225,10 +225,14 @@
 	</target>
 
 	<!-- Decide here if a master or slave is to be built -->
-	<!--<target name="RAA-RPM" depends="replication-master,base-RAA-RPM" description="Create rpm for raa:s operating environment">
+	<target name="RAA-RPM" depends="replication-master,base-RAA-RPM" description="Create rpm for raa:s operating environment">
+	</target>
+	<!-- <target name="RAA-RPM" depends="replication-slave,base-RAA-RPM" description="Create rpm for raa:s operating environment">
 	</target>-->
 
-	<target name="RAA-UTV-RPM" depends="replication-slave,base-RAA-UTV-RPM" description="Create rpm for raa:s operating environment, replicating slave">
+	<!--<target name="RAA-UTV-RPM" depends="replication-slave,base-RAARPM" description="Create rpm for raa:s development environment, replicating slave">
+	</target>-->
+	<target name="RAA-UTV-RPM" depends="replication-master,base-RAA-RPM" description="Create rpm for raa:s development environment, replicating master">
 	</target>
 
 </project>
