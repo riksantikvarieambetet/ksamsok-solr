@@ -176,6 +176,11 @@
 		<property name="solr.replication.snippet" value="${solr.slave.conf}" />
 		<property name="solr.replication.rpm.suffix" value="slave" />
 	</target>
+	
+	<target name="replication-slave-test" depends="init">
+			<property name="solr.replication.snippet" value="${solr.slave.test.conf}" />
+			<property name="solr.replication.rpm.suffix" value="slave" />
+	</target>
 
 	<target name="base-RAA-RPM" depends="clean,war">
 		<fail unless="solr.replication.snippet" message="No replication conf"/>
@@ -230,7 +235,7 @@
 	<!-- <target name="RAA-RPM" depends="replication-slave,base-RAA-RPM" description="Create rpm for raa:s operating environment">
 	</target>-->
 
-	<!--<target name="RAA-UTV-RPM" depends="replication-slave,base-RAARPM" description="Create rpm for raa:s development environment, replicating slave">
+	<!--<target name="RAA-UTV-RPM" depends="replication-slave-test,base-RAARPM" description="Create rpm for raa:s development environment, replicating slave">
 	</target>-->
 	<target name="RAA-UTV-RPM" depends="replication-master,base-RAA-RPM" description="Create rpm for raa:s development environment, replicating master">
 	</target>
