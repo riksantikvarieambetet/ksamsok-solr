@@ -235,9 +235,9 @@
 	<!-- <target name="RAA-RPM" depends="replication-slave,base-RAA-RPM" description="Create rpm for raa:s operating environment">
 	</target>-->
 
-	<!--<target name="RAA-UTV-RPM" depends="replication-slave-test,base-RAARPM" description="Create rpm for raa:s development environment, replicating slave">
-	</target>-->
-	<target name="RAA-UTV-RPM" depends="replication-master,base-RAA-RPM" description="Create rpm for raa:s development environment, replicating master">
+	<target name="RAA-UTV-RPM" depends="replication-slave-test,base-RAA-RPM" description="Create rpm for raa:s development environment, replicating slave">
 	</target>
+	<!--<target name="RAA-UTV-RPM" depends="replication-master,base-RAA-RPM" description="Create rpm for raa:s development environment, replicating master">
+	</target>-->
 
 </project>
