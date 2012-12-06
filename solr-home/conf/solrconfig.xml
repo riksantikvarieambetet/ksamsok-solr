@@ -68,7 +68,7 @@
   <!-- Used to specify an alternate directory to hold all index data
        other than the default ./data under the Solr home.
        If replication is in use, this should match the replication configuration. -->
-  <dataDir>${solr.data.dir:/var/lucene-index/data}</dataDir>
+  <dataDir>${solr.data.dir:/var/ksamsok-solr/data}</dataDir>
 
 
   <!-- WARNING: this <indexDefaults> section only provides defaults for index writers
@@ -502,6 +502,8 @@
 <!-- Please refer to http://wiki.apache.org/solr/SolrReplication for details on configuring replication -->
 <!-- remove the <lst name="master"> section if this is just a slave -->
 <!-- remove  the <lst name="slave"> section if this is just a master -->
+<!--Interval in which the slave should poll master .Format is HH:mm:ss . If this is absent slave does not poll automatically.
+         But a fetchindex can be triggered from the admin or the http API -->
 <!-- OBS nedanstående kommer ersättas med antingen en snippet för master-konf
      eller en snippet för slav-konf enligt ovan i kopieringen till rpm-katalogen.
 -->
@@ -516,8 +518,6 @@
     </lst>
     <lst name="slave">
       <str name="masterUrl">http://localhost:8983/solr/replication</str>
-      <!--Interval in which the slave should poll master .Format is HH:mm:ss . If this is absent slave does not poll automatically.
-         But a fetchindex can be triggered from the admin or the http API
       <str name="pollInterval">00:00:60</str>
     </lst>
 </requestHandler>-->
@@ -844,20 +844,10 @@
        The response format differs from solr1.1 formatting and returns a standard error code.
        To enable solr1.1 behavior, remove the /update handler or change its path
     -->
-  <requestHandler name="/update" class="solr.XmlUpdateRequestHandler">
-     <!-- special för att boosta vissa fält map fritextsökningar -->
-     <lst name="defaults">
-        <str name="update.processor">boost</str>
-     </lst>
-  </requestHandler>
+  <requestHandler name="/update" class="solr.XmlUpdateRequestHandler" />
 
-  <requestHandler name="/update/javabin" class="solr.BinaryUpdateRequestHandler">
-      <!-- special för att boosta vissa fält map fritextsökningar -->
-      <lst name="defaults">
-        <str name="update.processor">boost</str>
-     </lst>
-  
-  </requestHandler>
+
+  <requestHandler name="/update/javabin" class="solr.BinaryUpdateRequestHandler" />
 
   <!--
    Analysis request handler.  Since Solr 1.3.  Use to return how a document is analyzed.  Useful
@@ -935,9 +925,6 @@
   -->
   <requestHandler name="/admin/" class="org.apache.solr.handler.admin.AdminHandlers" />
 
-  <!-- index and disk info -->
-  <requestHandler name="/admin/indexdiskinfo" class="se.raa.ksamsok.solr.IndexDiskInfoHandler" />
-
   <!-- ping/healthcheck -->
   <requestHandler name="/admin/ping" class="PingRequestHandler">
     <lst name="defaults">
@@ -1011,50 +998,6 @@
   </updateRequestProcessorChain>
   -->
 
-   <!-- ********* BOOSTING/RELEVANSRANKNING -->
-   <!-- Extra kopieringar till fritextindex utöver de nödvändiga för att ge större vikt till
-        vissa termer genom att öka deras termfrekvens.
-    	Rangoridningslista från Johan C:
-
-			ItemLabel 10
-			ItemTitle 9
-			ItemClass/ItemClassName 8
-			ItemDescription 7
-			ItemKeyword 6
-			Thumbnailexists 5
-			plats-parametrar (countyName, provinceName osv) 4
-
-        Notera att kopieringen här inte betyder att nåt tex är 10 ggr viktigare än nåt annat
-        då relevensberäkningen beror på fler saker än termfrekvens, men det ger i alla fall
-        en liten boost i (förhoppningsvis) rätt riktning.
-	-->
-	<updateRequestProcessorChain name="boost">
-	    <processor class="se.raa.ksamsok.solr.TFBoostUpdateProcessorFactory">
-	    	<lst name="boost">
-	      		<str name="tofields">text, strict, item</str>
-	      		<lst name="from">
-	      			<int name="itemLabel">10</int>
-	      			<int name="itemTitle">9</int>
-	      			<int name="itemClassName">8</int>
-	      			<!--<int name="itemDescription">7</int>-->
-	      			<int name="itemKeyWord">6</int>
-	      			
-	      		</lst>
-	      	</lst>
-	    	<lst name="boost">
-	      		<str name="tofields">text, strict</str>
-	      		<lst name="from">
-	      			<int name="countyName">4</int>
-	      			<int name="provinceName">4</int>
-	      			<int name="parishName">4</int>
-	      			<int name="municipalityName">4</int>
-	      			<int name="placeName">4</int>
-	      		</lst>
-	      	</lst>
-	    </processor>
-	    <processor class="solr.LogUpdateProcessorFactory" />
-	    <processor class="solr.RunUpdateProcessorFactory" />
-	</updateRequestProcessorChain>
 
   <!-- queryResponseWriter plugins... query responses will be written using the
     writer specified by the 'wt' request parameter matching the name of a registered
