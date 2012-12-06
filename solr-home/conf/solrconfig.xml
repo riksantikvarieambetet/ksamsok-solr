@@ -517,7 +517,7 @@
     <lst name="slave">
       <str name="masterUrl">http://localhost:8983/solr/replication</str>
       <!--Interval in which the slave should poll master .Format is HH:mm:ss . If this is absent slave does not poll automatically.
-         But a fetchindex can be triggered from the admin or the http API -->
+         But a fetchindex can be triggered from the admin or the http API
       <str name="pollInterval">00:00:60</str>
     </lst>
 </requestHandler>-->
