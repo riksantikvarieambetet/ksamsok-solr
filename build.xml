@@ -147,7 +147,7 @@
         <delete includeemptydirs="true" >
             <fileset dir="${project.build.dir}">
                 <patternset>
-                    <include name="**"/>
+                    <exclude name="*/*.rpm"/>
                 </patternset>
             </fileset>
         </delete>
@@ -167,24 +167,41 @@
         </javadoc>
     </target>
 
-	<target name="replication-master" depends="init">
-		<property name="solr.replication.snippet" value="${solr.master.conf}" />
-		<property name="solr.replication.rpm.suffix" value="master" />
-	</target>
-
 	<target name="replication-slave" depends="init">
-		<property name="solr.replication.snippet" value="${solr.slave.conf}" />
-		<property name="solr.replication.rpm.suffix" value="slave" />
+		<property name="solr.slave" value="true"/>
 	</target>
 	
 	<target name="replication-slave-test" depends="init">
-			<property name="solr.replication.snippet" value="${solr.slave.test.conf}" />
-			<property name="solr.replication.rpm.suffix" value="slave" />
+			<property name="solr.slave" value="true"/>
+			<property name="solr.slave.test" value="true"/>
+	</target>
+	
+	<target name="updateSpecToSlave" if="solr.slave">
+		<copy todir="${project.build.dir}/rpm/SPECS" file="rpm/ksamsok-solr.spec" overwrite="true">
+			<filterset>
+				<filter token="RPM_SUFFIX" value="slave"/>
+			</filterset>
+		</copy>
+	</target>
+	<target name="updateSolrConfToSlave" if="solr.slave">
+		<copy todir="${project.build.dir}/rpm/SOURCES/" overwrite="true">
+			<fileset dir="solr-home" />
+			<filterset>
+				<filter token="SOLR_REPLICATION" value="${solr.slave.conf}"/>
+			</filterset>
+		</copy>
+	</target>
+	<target name="updateSolrConfToSlaveTest" if="solr.slave.test">
+		<copy todir="${project.build.dir}/rpm/SOURCES/" overwrite="true">
+			<fileset dir="solr-home" />
+			<filterset>
+				<filter token="SOLR_REPLICATION" value="${solr.slave.test.conf}"/>
+			</filterset>
+		</copy>
+
 	</target>
 
 	<target name="base-RAA-RPM" depends="clean,war">
-		<fail unless="solr.replication.snippet" message="No replication conf"/>
-		<fail unless="solr.replication.rpm.suffix" message="No suffix-property sat"/>
 		<!-- create RPM-structure -->
 		<mkdir dir="${project.build.dir}/rpm/RPMS" />
 		<mkdir dir="${project.build.dir}/rpm/SPECS" />
@@ -195,9 +212,11 @@
 
 		<copy todir="${project.build.dir}/rpm/SPECS" file="rpm/ksamsok-solr.spec">
 			<filterset>
-				<filter token="RPM_SUFFIX" value="${solr.replication.rpm.suffix}"/>
+				<filter token="RPM_SUFFIX" value="master"/>
 			</filterset>
 		</copy>
+		
+		<antcall target="updateSpecToSlave"/>
 		
 		<!-- paste here to the structure used after install-->
 		<copy todir="${project.build.dir}/rpm/SOURCES/">
@@ -208,10 +227,11 @@
 		<copy todir="${project.build.dir}/rpm/SOURCES/">
 			<fileset dir="solr-home" />
 			<filterset>
-				<filter token="SOLR_REPLICATION" value="${solr.replication.snippet}"/>
+				<filter token="SOLR_REPLICATION" value="${solr.master.conf}"/>
 			</filterset>
 		</copy>
-
+		<antcall target="updateSolrConfToSlave"/>
+		<antcall target="updateSolrConfToSlaveTest"/>
 		<!-- Create the actual rpm-file -->
     	<echo message="${project.build.dir}"/>
 		<rpm
@@ -229,15 +249,20 @@
 
 	</target>
 
-	<!-- Decide here if a master or slave is to be built -->
-	<target name="RAA-RPM" depends="replication-master,base-RAA-RPM" description="Create rpm for raa:s operating environment">
+	<!-- Bygger alltid en master och en slav rpm-->
+	<target name="RAA-RPM" depends="init,base-RAA-RPM" description="Create rpm for raa:s operating environment">
+		<!--Bygg en slav också-->
+		<antcall target="RAA-RPM-SLAVE"/>
 	</target>
-	<!-- <target name="RAA-RPM" depends="replication-slave,base-RAA-RPM" description="Create rpm for raa:s operating environment">
-	</target>-->
+	<target name="RAA-RPM-SLAVE" depends="replication-slave,base-RAA-RPM" description="Create rpm for raa:s operating environment">
+	</target>
 
-	<!--<target name="RAA-UTV-RPM" depends="replication-slave-test,base-RAA-RPM" description="Create rpm for raa:s development environment, replicating slave">
-	</target>-->
-	<target name="RAA-UTV-RPM" depends="replication-master,base-RAA-RPM" description="Create rpm for raa:s development environment, replicating master">
+	<target name="RAA-UTV-RPM" depends="init,base-RAA-RPM" description="Create rpm for raa:s development environment, replicating slave">
+		<!--Bygg en slav också-->
+		<antcall target="RAA-UTV-RPM-SLAVE"/>
+	</target>
+	
+	<target name="RAA-UTV-RPM-SLAVE" depends="replication-slave-test,base-RAA-RPM" description="Create rpm for raa:s development environment, replicating master">
 	</target>
 
 </project>
