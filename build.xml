@@ -110,6 +110,8 @@
 				<include name="log4j-*.jar"/>
 			</fileset>
 		</copy>
+		<delete file="${project.build.dir}/unpacked/WEB-INF/web.xml" verbose="true"/>
+		<copy file="${basedir}/solr/web.xml" todir="${project.build.dir}/unpacked/WEB-INF"/>
 		<copy file="${basedir}/solr/log4j.properties" todir="${project.build.dir}/unpacked/WEB-INF/classes" />
 		<copy file="${basedir}/solr/context.xml" todir="${project.build.dir}/unpacked/META-INF/">
 			<filterset>
