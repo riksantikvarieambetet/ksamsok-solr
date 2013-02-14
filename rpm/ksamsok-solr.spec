@@ -1,5 +1,5 @@
 %define ver 1.0.2
-%define rel 10
+%define rel 11
 
 Summary: Raä K-Samsök, solr-instans (@RPM_SUFFIX@)
 Name: raa-ksamsok_solr_@RPM_SUFFIX@
@@ -49,7 +49,7 @@ rm -rf /usr/local/tomcat8080/webapps/solr
 %files
 %defattr(-,tomcat,raagroup)
 %attr(0644,tomcat,raagroup) /usr/local/tomcat8080/webapps/solr.war
-%attr(0744,tomcat,raagroup) /var/lucene-index
+# This is not needed %attr(0744,tomcat,raagroup) /var/lucene-index
 
 %changelog
 * Wed Aug 22 2012 ant
