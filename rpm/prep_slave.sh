@@ -3,9 +3,6 @@
 # Exptected to execute only on the slave ksamsokserver
 echo "We are on the SLAVE!"
 
-
-#echo "About to create /var/lucene-index"
-#mkdir /var/lucene-index
-#chown tomcat:raagroup /var/lucene-index
-#chmod 755 /var/lucene-index
+echo "About to change owner of /var/lucene-index"
+chown tomcat:raagroup -R /var/lucene-index
 echo "Done preparing SLAVE!"
