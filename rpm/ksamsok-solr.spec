@@ -26,7 +26,7 @@ mkdir -p -m755 $RPM_BUILD_ROOT/var/lucene-index/conf
 
 install -m755 $RPM_SOURCE_DIR/solr.war $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
 install -m755 $RPM_SOURCE_DIR/conf/* $RPM_BUILD_ROOT/var/lucene-index/conf
-install -m755 $RPM_SOURCE_DIR/prep_environment.sh $RPM_BUILD_ROOT/tmp/prep_environment.sh
+install -m755 $RPM_SOURCE_DIR/prep_environment.sh $RPM_BUILD_ROOT/usr/local/tomcat8080/prep_environment.sh
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -36,23 +36,12 @@ rm -rf $RPM_BUILD_ROOT
 /sbin/service tomcat8080.init stop
 sleep 5
 rm -rf /usr/local/tomcat8080/webapps/solr
-#Skapa index map
-#mkdir /var/lucene-index
-#chown tomcat /var/lucene-index
-#chgrp raagroup /var/lucene-index
-
-#sudo -u tomcat mkdir /var/lucene-index/data
-
-#Länka in indexet
-#sudo -u tomcat ln -s /mnt/lucene-index/data/index /var/lucene-index/data/index
-#sudo -u tomcat ln -s /mnt/lucene-index/data/spellchecker /var/lucene-index/data/spellchecker
-
 
 %post
-echo "Postinstall.. About to run /tmp/prep_environment.sh..."
-/tmp/prep_environment.sh
-echo "About to delete /tmp/prep_environment.sh"
-rm /tmp/prep_environment.sh
+echo "Postinstall.. About to run /usr/local/tomcat8080/prep_environment.sh..."
+/usr/local/tomcat8080/prep_environment.sh
+echo "About to delete /usr/local/tomcat8080/prep_environment.sh"
+rm /usr/local/tomcat8080/prep_environment.sh
 /sbin/service tomcat8080.init start
 
 %preun
@@ -64,7 +53,7 @@ rm -rf /usr/local/tomcat8080/webapps/solr
 %files
 %defattr(-,tomcat,raagroup)
 %attr(0644,tomcat,raagroup) /usr/local/tomcat8080/webapps/solr.war
-%attr(0755,root,root) /tmp/prep_environment.sh
+%attr(0755,root,root) /usr/local/tomcat8080/prep_environment.sh
 %attr(0744,tomcat,raagroup) /var/lucene-index/conf
 
 %changelog
