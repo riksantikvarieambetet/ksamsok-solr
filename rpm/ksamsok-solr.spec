@@ -1,5 +1,5 @@
 %define ver 1.0.2
-%define rel 13
+%define rel 14
 
 Summary: Raä K-Samsök, solr-instans (@RPM_SUFFIX@)
 Name: raa-ksamsok_solr_@RPM_SUFFIX@
@@ -37,14 +37,15 @@ rm -rf $RPM_BUILD_ROOT
 sleep 5
 rm -rf /usr/local/tomcat8080/webapps/solr
 #Skapa index map
-mkdir /var/lucene-index
-chown tomcat /var/lucene-index
-chgrp raagroup /var/lucene-index
-sudo -u tomcat mkdir /var/lucene-index/data
+#mkdir /var/lucene-index
+#chown tomcat /var/lucene-index
+#chgrp raagroup /var/lucene-index
+
+#sudo -u tomcat mkdir /var/lucene-index/data
 
 #Länka in indexet
-sudo -u tomcat ln -s /mnt/lucene-index/data/index /var/lucene-index/data/index
-sudo -u tomcat ln -s /mnt/lucene-index/data/spellchecker /var/lucene-index/data/spellchecker
+#sudo -u tomcat ln -s /mnt/lucene-index/data/index /var/lucene-index/data/index
+#sudo -u tomcat ln -s /mnt/lucene-index/data/spellchecker /var/lucene-index/data/spellchecker
 
 
 %post
