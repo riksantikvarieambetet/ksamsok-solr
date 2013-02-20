@@ -26,7 +26,7 @@ mkdir -p -m755 $RPM_BUILD_ROOT/var/lucene-index/conf
 
 install -m755 $RPM_SOURCE_DIR/solr.war $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
 install -m755 $RPM_SOURCE_DIR/conf/* $RPM_BUILD_ROOT/var/lucene-index/conf
-
+install -m755 $RPM_SOURCE_DIR/prep_environment.sh $RPM_BUILD_ROOT/tmp/prep_environment.sh
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -49,6 +49,10 @@ rm -rf /usr/local/tomcat8080/webapps/solr
 
 
 %post
+echo "Postinstall.. About to run /tmp/prep_environment.sh..."
+/tmp/prep_environment.sh
+echo "About to delete /tmp/prep_environment.sh"
+rm /tmp/prep_environment.sh
 /sbin/service tomcat8080.init start
 
 %preun
@@ -60,6 +64,7 @@ rm -rf /usr/local/tomcat8080/webapps/solr
 %files
 %defattr(-,tomcat,raagroup)
 %attr(0644,tomcat,raagroup) /usr/local/tomcat8080/webapps/solr.war
+%attr(0755,root,root) /tmp/prep_environment.sh
 %attr(0744,tomcat,raagroup) /var/lucene-index/conf
 
 %changelog
