@@ -184,9 +184,8 @@
 				<filter token="RPM_SUFFIX" value="slave"/>
 			</filterset>
 		</copy>
-		<copy tofile="${project.build.dir}/rpm/SOURCES/prep_environment.sh" file="rpm/prep_slave.sh" overwrite="true" verbose="true"></copy>
-
 	</target>
+	
 	<target name="updateSolrConfToSlave" if="solr.slave">
 		<copy todir="${project.build.dir}/rpm/SOURCES/" overwrite="true">
 			<fileset dir="solr-home" />
@@ -220,8 +219,6 @@
 			</filterset>
 		</copy>
 		
-		<echo message="Kopierar in master.sh... Den blir ev. overskriven om vi ar i slave-miljo..." ></echo>
-		<copy tofile="${project.build.dir}/rpm/SOURCES/prep_environment.sh" file="rpm/prep_master.sh" overwrite="true" verbose="true"></copy>
 		<antcall target="updateSpecToSlave"/>
 		
 		<!-- paste here to the structure used after install-->
