@@ -21,16 +21,23 @@ Raä K-Samsok, solr-instans (@RPM_SUFFIX@)
 %install
 rm -rf $RPM_BUILD_ROOT
 
-mkdir -p -m755 $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
-sudo -u tomcat mkdir -p -m755 $RPM_BUILD_ROOT/var/lucene-index/conf
+mkdir -p $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
+mkdir -p $RPM_BUILD_ROOT/var/lucene-index/conf
+ln -s /mnt/lucene-index/data $RPM_BUILD_ROOT/var/lucene-index/data
 
-install -m755 $RPM_SOURCE_DIR/solr.war $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
-sudo -u tomcat install -m755 $RPM_SOURCE_DIR/conf/* $RPM_BUILD_ROOT/var/lucene-index/conf
+install $RPM_SOURCE_DIR/solr.war $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
+install $RPM_SOURCE_DIR/conf/* $RPM_BUILD_ROOT/var/lucene-index/conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %pre
+# Check if /mnt/lucene-index/data exist on target otherwise exit
+if ! [ -d /mnt/lucene-index/data ]; then
+	echo "Can not find /mnt/lucene-index/data. Please create it with user tomcat. Exiting";
+	exit 3;
+fi
+
 #Check if tomcat is running, if not start it
 tomcatStatus=$(/sbin/service tomcat8080.init status)
 case $tomcatStatus in
@@ -94,9 +101,6 @@ if [ -d /usr/local/tomcat8080/webapps/solr ] ; then
 	exit 1
 fi
 
-#Create link for index from mount directory to var directory
-sudo -u tomcat ln -s /mnt/lucene-index /var/lucene-index
-
 %post
 echo "Waiting 60 s for tomcat to start web application"
 COUNTER=0
@@ -120,7 +124,8 @@ rm -rf /usr/local/tomcat8080/webapps/solr
 %files
 %defattr(-,tomcat,raagroup)
 %attr(0644,tomcat,raagroup) /usr/local/tomcat8080/webapps/solr.war
-/var/lucene-index/conf
+%attr(0755,tomcat,raagroup) /var/lucene-index/conf
+/var/lucene-index/data
 
 %changelog
 * Wed Aug 22 2012 ant
