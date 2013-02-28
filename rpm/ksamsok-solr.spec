@@ -40,6 +40,7 @@ fi
 # Check if /var/lucene-index is an symlink then remove it
 if [ -L /var/lucene-index ]; then
 	echo "Removing symlink to /var/lucene-index"
+	rm -f /var/lucene-index
 fi
 
 #Check if tomcat is running, if not start it
