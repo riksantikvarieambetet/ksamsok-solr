@@ -37,6 +37,10 @@ if ! [ -d /mnt/lucene-index/data ]; then
 	echo "Can not find /mnt/lucene-index/data. Please create it with user tomcat. Exiting";
 	exit 3;
 fi
+# Check if /var/lucene-index is an symlink then remove it
+if [ -L /var/lucene-index ]; then
+	echo "Removing symlink to /var/lucene-index"
+fi
 
 #Check if tomcat is running, if not start it
 tomcatStatus=$(/sbin/service tomcat8080.init status)
