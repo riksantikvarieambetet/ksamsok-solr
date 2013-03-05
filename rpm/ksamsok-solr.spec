@@ -1,5 +1,5 @@
 %define ver 1.0.2
-%define rel 18
+%define rel 19
 
 Summary: Raä K-Samsök, solr-instans (@RPM_SUFFIX@)
 Name: raa-ksamsok_solr_@RPM_SUFFIX@
@@ -23,7 +23,12 @@ rm -rf $RPM_BUILD_ROOT
 
 mkdir -p $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
 mkdir -p $RPM_BUILD_ROOT/var/lucene-index/conf
-ln -s /mnt/lucene-index/data $RPM_BUILD_ROOT/var/lucene-index/data
+# Check if /mnt/lucene-index/data exist on target otherwise exit
+if ! [ -d /mnt/lucene-index/data ]; then
+	ln -s /mnt/lucene-index $RPM_BUILD_ROOT/var/lucene-index/data
+else
+	ln -s /mnt/lucene-index/data $RPM_BUILD_ROOT/var/lucene-index/data
+fi
 
 install $RPM_SOURCE_DIR/solr.war $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
 install $RPM_SOURCE_DIR/conf/* $RPM_BUILD_ROOT/var/lucene-index/conf
@@ -32,11 +37,6 @@ install $RPM_SOURCE_DIR/conf/* $RPM_BUILD_ROOT/var/lucene-index/conf
 rm -rf $RPM_BUILD_ROOT
 
 %pre
-# Check if /mnt/lucene-index/data exist on target otherwise exit
-if ! [ -d /mnt/lucene-index/data ]; then
-	echo "Can not find /mnt/lucene-index/data. Please create it with user tomcat. Exiting";
-	exit 3;
-fi
 # Check if /var/lucene-index is an symlink then remove it
 if [ -L /var/lucene-index ]; then
 	echo "Removing symlink to /var/lucene-index"
