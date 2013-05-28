@@ -22,6 +22,7 @@ Raä K-Samsok, solr-instans (@RPM_SUFFIX@)
 rm -rf $RPM_BUILD_ROOT
 
 mkdir -p $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
+mkdir -p $RPM_BUILD_ROOT/var/lucene-index
 mkdir -p $RPM_BUILD_ROOT/var/lucene-index/conf
 install $RPM_SOURCE_DIR/solr.war $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
 install $RPM_SOURCE_DIR/conf/* $RPM_BUILD_ROOT/var/lucene-index/conf
@@ -32,7 +33,7 @@ rm -rf $RPM_BUILD_ROOT
 %pre
 
 # Create symlink before installation
-ln -s /mnt/lucene-index $RPM_BUILD_ROOT/var/lucene-index
+ln -s /mnt/lucene-index /var/lucene-index
 
 #Check if tomcat is running, if not start it
 tomcatStatus=$(/sbin/service tomcat8080.init status)
@@ -127,7 +128,8 @@ fi
 %files
 %defattr(-,tomcat,raagroup)
 %attr(0644,tomcat,raagroup) /usr/local/tomcat8080/webapps/solr.war
-/var/lucene-index/conf
+%attr(0644,tomcat,raagroup) /var/lucene-index
+%attr(0644,tomcat,raagroup) /var/lucene-index/conf
 
 
 %changelog
