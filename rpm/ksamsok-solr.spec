@@ -127,7 +127,7 @@ fi
 %files
 %defattr(-,tomcat,raagroup)
 %attr(0644,tomcat,raagroup) /usr/local/tomcat8080/webapps/solr.war
-%attr(0755,tomcat,raagroup) /var/lucene-index/conf
+/var/lucene-index/conf
 
 
 %changelog
