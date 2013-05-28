@@ -1,5 +1,5 @@
 %define ver 1.0.2
-%define rel 19
+%define rel 20
 
 Summary: Raä K-Samsök, solr-instans (@RPM_SUFFIX@)
 Name: raa-ksamsok_solr_@RPM_SUFFIX@
@@ -23,13 +23,6 @@ rm -rf $RPM_BUILD_ROOT
 
 mkdir -p $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
 mkdir -p $RPM_BUILD_ROOT/var/lucene-index/conf
-# Check if /mnt/lucene-index/data exist on target otherwise exit
-if ! [ -d /mnt/lucene-index/data ]; then
-	ln -s /mnt/lucene-index $RPM_BUILD_ROOT/var/lucene-index/data
-else
-	ln -s /mnt/lucene-index/data $RPM_BUILD_ROOT/var/lucene-index/data
-fi
-
 install $RPM_SOURCE_DIR/solr.war $RPM_BUILD_ROOT/usr/local/tomcat8080/webapps
 install $RPM_SOURCE_DIR/conf/* $RPM_BUILD_ROOT/var/lucene-index/conf
 
@@ -37,11 +30,9 @@ install $RPM_SOURCE_DIR/conf/* $RPM_BUILD_ROOT/var/lucene-index/conf
 rm -rf $RPM_BUILD_ROOT
 
 %pre
-# Check if /var/lucene-index is an symlink then remove it
-if [ -L /var/lucene-index ]; then
-	echo "Removing symlink to /var/lucene-index"
-	rm -f /var/lucene-index
-fi
+
+# Create symlink before installation
+ln -s /mnt/lucene-index $RPM_BUILD_ROOT/var/lucene-index
 
 #Check if tomcat is running, if not start it
 tomcatStatus=$(/sbin/service tomcat8080.init status)
@@ -125,12 +116,19 @@ done
 
 %postun
 rm -rf /usr/local/tomcat8080/webapps/solr
+rm -rf /var/lucene-index/conf
+
+# Check if /var/lucene-index is an symlink then remove it
+if [ -L /var/lucene-index ]; then
+	echo "Removing symlink to /var/lucene-index"
+	rm -f /var/lucene-index
+fi
 
 %files
 %defattr(-,tomcat,raagroup)
 %attr(0644,tomcat,raagroup) /usr/local/tomcat8080/webapps/solr.war
 %attr(0755,tomcat,raagroup) /var/lucene-index/conf
-/var/lucene-index/data
+
 
 %changelog
 * Wed Aug 22 2012 ant
