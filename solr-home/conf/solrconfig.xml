@@ -504,8 +504,8 @@
 <!-- remove  the <lst name="slave"> section if this is just a master -->
 <!--Interval in which the slave should poll master .Format is HH:mm:ss . If this is absent slave does not poll automatically.
          But a fetchindex can be triggered from the admin or the http API -->
-<!-- OBS nedanstående kommer ersättas med antingen en snippet för master-konf
-     eller en snippet för slav-konf enligt ovan i kopieringen till rpm-katalogen.
+<!-- OBS nedanstaende kommer ersattas med antingen en snippet for master-konf
+     eller en snippet for slav-konf enligt ovan i kopieringen till rpm-katalogen.
 -->
 <!-- @SOLR_REPLICATION@ -->
 
