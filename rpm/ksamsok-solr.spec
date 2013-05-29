@@ -96,7 +96,8 @@ fi
 
 %post
 # Create symlink to index after installation
-ln -s /mnt/lucene-index/ /var/lucene-index/data
+echo "About to create symlink /var/lucene-index/data to: /mnt/lucene-index/data"
+ln -s /mnt/lucene-index/data /var/lucene-index/data
 
 echo "Waiting 60 s for tomcat to start web application"
 COUNTER=0
@@ -119,9 +120,9 @@ rm -rf /usr/local/tomcat8080/webapps/solr
 rm -rf /var/lucene-index/conf
 
 # Check if /var/lucene-index is an symlink then remove it
-if [ -L /var/lucene-index ]; then
-	echo "Removing symlink to /var/lucene-index"
-	rm -f /var/lucene-index
+if [ -L /var/lucene-index/data ]; then
+	echo "Removing symlink to /var/lucene-index/data"
+	rm -f /var/lucene-index/data
 fi
 
 %files
