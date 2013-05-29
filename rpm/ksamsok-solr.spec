@@ -31,9 +31,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %pre
 
-# Create symlink before installation
-ln -s /mnt/lucene-index /var/lucene-index
-
 #Check if tomcat is running, if not start it
 tomcatStatus=$(/sbin/service tomcat8080.init status)
 case $tomcatStatus in
@@ -98,6 +95,9 @@ if [ -d /usr/local/tomcat8080/webapps/solr ] ; then
 fi
 
 %post
+# Create symlink to index after installation
+ln -s /mnt/lucene-index/data /var/lucene-index/data
+
 echo "Waiting 60 s for tomcat to start web application"
 COUNTER=0
 while [  $COUNTER -lt 60 ]; do
