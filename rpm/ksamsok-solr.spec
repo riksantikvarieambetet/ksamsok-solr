@@ -119,9 +119,9 @@ rm -rf /usr/local/tomcat8080/webapps/solr
 rm -rf /var/lucene-index/conf
 
 # Check if /var/lucene-index is an symlink then remove it
-if [ -L /var/lucene-index ]; then
-	echo "Removing symlink to /var/lucene-index"
-	rm -f /var/lucene-index
+if [ -L /var/lucene-index/data ]; then
+	echo "Removing symlink to /var/lucene-index/data"
+	rm -f /var/lucene-index/data
 fi
 
 %files
