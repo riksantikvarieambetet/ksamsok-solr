@@ -20,3 +20,4 @@ RUNNING_PID
 *.war
 *.ear
 
+/eclipse-bin/
