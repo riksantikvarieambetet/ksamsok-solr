@@ -143,7 +143,7 @@
         <antcall target="conf-copy"/>
     </target>
 
-    <target name="clean" depends="init"
+    <!--<target name="clean" depends="init"
         description="Removes the build catalogue.">
     	<mkdir dir="${project.build.dir}"/>
         <delete includeemptydirs="true" >
@@ -153,7 +153,20 @@
                 </patternset>
             </fileset>
         </delete>
-    </target>
+    </target>-->
+	
+	<target name="clean" description="Tar bort build-katalogen." depends="init,builddirexists" if="build.dir.present">
+		<delete includeemptydirs="true">
+		   	<fileset dir="${project.build.dir}">
+		    </fileset>
+		</delete>
+	</target>
+			
+	<target name="builddirexists">
+		<condition property="build.dir.present">
+			<available file="${project.build.dir}" type="dir"/>
+		</condition>
+	</target>
 
     <target name="javadoc" depends="init"
 		description="Generates javadoc.">
@@ -204,7 +217,7 @@
 
 	</target>
 
-	<target name="base-RAA-RPM" depends="clean,war">
+	<target name="base-RAA-RPM" depends="war">
 		<!-- create RPM-structure -->
 		<mkdir dir="${project.build.dir}/rpm/RPMS" />
 		<mkdir dir="${project.build.dir}/rpm/SPECS" />
