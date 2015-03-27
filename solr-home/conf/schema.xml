@@ -585,7 +585,10 @@
 	<field name="marriedTo" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	<field name="mediaLicense" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="mediaLicenseUrl" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="mediaMotiveWord" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="byline" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="copyright" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	<field name="serviceName" type="lowercase" indexed="true" stored="false"/>
 	<field name="serviceOrganization" type="lowercase" indexed="true" stored="false"/>
