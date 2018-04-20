@@ -14,7 +14,7 @@ Group: System Environment/Daemons
 # provar att kommentera bort BuildArchitectures: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
-Requires: raa-tomcat8080 = 7.0.25
+Requires: raa-tomcat8080 = 7.0.82
 
 %description
 Raä K-Samsok, solr-instans (@RPM_SUFFIX@)
