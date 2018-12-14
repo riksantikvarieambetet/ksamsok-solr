@@ -17,7 +17,7 @@ plugins {
 ospackage {
 
     
-    packageName 'raa-solr'
+    packageName 'ksamsok-solr'
     version '7.5.0'
     release '1'
     os 'LINUX'
