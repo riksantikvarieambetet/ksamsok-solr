@@ -16,8 +16,8 @@ RUNNING_PID
 .cache
 
 *.class
-*.jar
 *.war
 *.ear
 
-/eclipse-bin/
+gradlew.bat
+ksamsok-config/solrconfig.xml~
