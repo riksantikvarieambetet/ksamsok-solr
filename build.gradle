@@ -18,8 +18,8 @@ ospackage {
 
     
     packageName 'raa-ksamsok_solr_master'
-    version '7.5.0'
-    release '1'
+    version %{ver}
+    release %{rel}
     os 'LINUX'
     arch 'X86_64'
     
