@@ -19,7 +19,7 @@ ospackage {
     
     packageName = 'raa-ksamsok_solr_master'
     version = %{ver}
-    release  = %{rel}
+    release = %{rel}
     os = 'LINUX'
     arch = 'X86_64'
     
