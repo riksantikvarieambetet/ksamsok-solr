@@ -17,7 +17,7 @@ plugins {
 ospackage {
 
     
-    packageName = 'raa-ksamsok_solr_master'
+    packageName = 'raa-ksamsok_solr'
     version = %{ver}
     release = %{rel}
     os = 'LINUX'
