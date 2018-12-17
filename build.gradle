@@ -61,3 +61,7 @@ task buildRaaRpm {
     dependsOn buildRpm
     dependsOn moveRpmFile
 }
+
+task cleanBuildDir(type: Delete) {
+    delete "$buildDir"
+}
