@@ -17,11 +17,11 @@ plugins {
 ospackage {
 
     
-    packageName 'raa-ksamsok_solr_master'
-    version %{ver}
-    release %{rel}
-    os 'LINUX'
-    arch 'X86_64'
+    packageName = 'raa-ksamsok_solr_master'
+    version = %{ver}
+    release  = %{rel}
+    os = 'LINUX'
+    arch = 'X86_64'
     
     user('solr')
     permissionGroup('solr')
