@@ -42,3 +42,22 @@ ospackage {
         into('ksamsok-config')
     }
 }
+
+task copyRpmFile(type: Copy) {
+    from "$buildDir/distributions"
+    into "$buildDir/rpm"
+}
+
+task deleteRpmFile(type: Delete) {
+    delete "$buildDir/distributions"
+}
+
+task moveRpmFile {
+    dependsOn copyRpmFile
+    dependsOn deleteRpmFile
+}
+
+task buildRaaRpm {
+    dependsOn buildRpm
+    dependsOn moveRpmFile
+}
