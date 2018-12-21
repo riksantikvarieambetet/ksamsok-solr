@@ -18,8 +18,8 @@ ospackage {
 
     
     packageName = 'raa-ksamsok_solr'
-    version = %{ver}
-    release = %{rel}
+    version = '%{ver}'
+    release = '%{rel}'
     os = 'LINUX'
     arch = 'X86_64'
     
@@ -43,23 +43,15 @@ ospackage {
     }
 }
 
-task copyRpmFile(type: Copy) {
-    from "$buildDir/distributions"
-    into "$buildDir/rpm"
-}
-
-task deleteRpmFile(type: Delete) {
-    delete "$buildDir/distributions"
-}
-
-task moveRpmFile {
-    dependsOn copyRpmFile
-    dependsOn deleteRpmFile
-}
-
-task buildRaaRpm {
-    dependsOn buildRpm
-    dependsOn moveRpmFile
+buildRpm {
+    dependsOn war
+    doLast {
+        //nebula/ospackage bygger till /distributions, men bamboo förväntar sig att rpm:en finns i /rpm
+        copy {
+            from "$buildDir/distributions"
+            into "$buildDir/rpm"
+        }
+    }
 }
 
 task cleanBuildDir(type: Delete) {

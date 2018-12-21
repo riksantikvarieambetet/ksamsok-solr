@@ -4,6 +4,8 @@
 # installera ksamsok som en core
 su solr -c "/usr/local/solr/bin/solr create_core -c ksamsok -d /tmp/ksamsok-config"
 
+###### HÄR GÅR INTE ATT LÄGGA TILL NÅGOT MER, EFTERSOM SKRIPTET SKJUTER UT PÅ OVANSTÅENDE RAD OM KSAMSOK-COREN REDAN FINNS ######
+
 
 
 
