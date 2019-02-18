@@ -16,8 +16,15 @@ RUNNING_PID
 .cache
 
 *.class
-*.jar
 *.war
 *.ear
+*.jar
 
-/eclipse-bin/
+.gradle
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+.idea
+
+ksamsok-config/solrconfig.xml~
