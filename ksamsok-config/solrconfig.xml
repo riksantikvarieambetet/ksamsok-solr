@@ -98,7 +98,7 @@
        replication is in use, this should match the replication
        configuration.
     -->
-  <dataDir>${solr.data.dir:/var/solr/data}</dataDir>
+  <dataDir>${solr.data.dir:/mnt/lucene-index/data}</dataDir>
 
 
   <!-- The DirectoryFactory to use for indexes.
