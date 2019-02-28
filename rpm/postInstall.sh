@@ -1,5 +1,5 @@
 #solr har ett installationsskript, som vi kör istället för att göra en "egen" installation av solr
--n = do not start
+#-n = do not start
 /tmp/solr-7.5.0/install_solr_service.sh /tmp/solr-7.5.0/solr-7.5.0.tgz -i /usr/local -d /mnt/lucene-index -n
 
 
