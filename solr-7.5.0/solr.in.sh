@@ -178,3 +178,10 @@ SOLR_HEAP="1024m"
 #SOLR_RECOMMENDED_MAX_PROCESSES=
 #SOLR_ULIMIT_CHECKS=
 
+SOLR_PID_DIR="/mnt/lucene-index"
+SOLR_HOME="/mnt/lucene-index/data"
+LOG4J_PROPS="/mnt/lucene-index/log4j2.xml"
+SOLR_LOGS_DIR="/mnt/lucene-index/logs"
+SOLR_PORT="8983"
+
+
