@@ -21,8 +21,6 @@ grep -qxF 'solr soft nofile 65535' /etc/security/limits.conf || echo 'solr soft 
 grep -qxF 'solr hard nproc 65535' /etc/security/limits.conf || echo 'solr hard nproc 65535"' >> /etc/security/limits.conf
 grep -qxF 'solr soft nproc 65535' /etc/security/limits.conf || echo 'solr soft nproc 65535"' >> /etc/security/limits.conf
 
-solr hard nofile 65535
-
 
 service solr start
 sleep 5
