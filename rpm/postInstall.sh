@@ -10,10 +10,10 @@ cp /tmp/solr-7.5.0/solr.in.sh /etc/default/solr.in.sh
 chown root:solr /etc/default/solr.in.sh
 
 # lägg till solr ulimits till limits.conf om det inte redan står där
-grep -qxF 'solr hard nofile 65535' /etc/security/limits.conf || echo 'solr hard nofile 65535"' >> /etc/security/limits.conf
-grep -qxF 'solr soft nofile 65535' /etc/security/limits.conf || echo 'solr soft nofile 65535"' >> /etc/security/limits.conf
-grep -qxF 'solr hard nproc 65535' /etc/security/limits.conf || echo 'solr hard nproc 65535"' >> /etc/security/limits.conf
-grep -qxF 'solr soft nproc 65535' /etc/security/limits.conf || echo 'solr soft nproc 65535"' >> /etc/security/limits.conf
+grep -qxF 'solr hard nofile 65535' /etc/security/limits.conf || echo 'solr hard nofile 65535' >> /etc/security/limits.conf
+grep -qxF 'solr soft nofile 65535' /etc/security/limits.conf || echo 'solr soft nofile 65535' >> /etc/security/limits.conf
+grep -qxF 'solr hard nproc 65535' /etc/security/limits.conf || echo 'solr hard nproc 65535' >> /etc/security/limits.conf
+grep -qxF 'solr soft nproc 65535' /etc/security/limits.conf || echo 'solr soft nproc 65535' >> /etc/security/limits.conf
 
 
 # STARTA SERVICEN
