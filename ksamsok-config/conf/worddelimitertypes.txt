@@ -1,0 +1,2 @@
+# Don't split texts at '_'
+_ => ALPHANUM
