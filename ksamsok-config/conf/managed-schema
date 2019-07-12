@@ -140,35 +140,39 @@
 
 	
 	<field name="relUri" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="containsInformationAbout" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="sameAs" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="isRelatedTo" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="containsObject" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="isContainedIn" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasBeenUsedIn" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasChild" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="hasParent" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasFind" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="isFoundIn" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasImage" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasObjectExample" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="isObjectExampleFor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="hasParent" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasPart" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="isPartOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="isDescribedBy" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="describes" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="isFoundIn" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="isPartOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="isRelatedTo" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="isVisualizedBy" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="sameAs" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="visualizes" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="containsInformationAbout" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="isMentionedBy" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="mentions" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	
+	<field name="participated_in" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="had_participant" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="was_present_at" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="occurred_in_the_presence_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="has_former_or_current_keeper" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="has_former_or_current_owner" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="was_created_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="right_held_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="is_current_or_former_member_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="has_current_or_former_member" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="occurred_in_the_presence_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="was_present_at" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="had_participant" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="participated_in" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	
 	<field name="child" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -176,11 +180,6 @@
 	<field name="mother" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="father" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
-	
-	<field name="has_former_or_current_owner" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="has_former_or_current_keeper" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="was_created_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="right_held_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	<field name="client" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="composer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
