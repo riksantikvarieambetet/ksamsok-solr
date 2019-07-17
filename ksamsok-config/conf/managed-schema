@@ -168,10 +168,14 @@
 	<field name="was_present_at" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="occurred_in_the_presence_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="has_former_or_current_keeper" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="is_former_or_current_keeper_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="has_former_or_current_owner" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="is_former_or_current_owner_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="was_created_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+  <field name="has_created" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+  <field name="has_right_on" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="right_held_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="is_current_or_former_member_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+ 	<field name="is_current_or_former_member_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="has_current_or_former_member" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	
