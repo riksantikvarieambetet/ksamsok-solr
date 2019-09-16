@@ -30,7 +30,6 @@ ospackage {
     permissionGroup('solr')
     
 
-    requires('raa-jre', '1.8.0-191', EQUAL)
 
     postInstall file('rpm/postInstall.sh')
     postUninstall file('rpm/postUninstall.sh')
