@@ -222,7 +222,7 @@ if [ -z "$SOLR_USER" ]; then
 fi
 
 if [ -z "$SOLR_PORT" ]; then
-  SOLR_PORT=8983
+  SOLR_PORT=8080
 fi
 
 if [ -z "$SOLR_UPGRADE" ]; then

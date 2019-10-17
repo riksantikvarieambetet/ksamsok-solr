@@ -182,6 +182,6 @@ SOLR_PID_DIR="/mnt/lucene-index"
 SOLR_HOME="/mnt/lucene-index/data"
 LOG4J_PROPS="/mnt/lucene-index/log4j2.xml"
 SOLR_LOGS_DIR="/mnt/lucene-index/logs"
-SOLR_PORT="8983"
+SOLR_PORT="8080"
 
 
