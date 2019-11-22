@@ -111,7 +111,9 @@
     -->
 
   <field name="_version_" type="plong" indexed="false" stored="false"/>
+
 	<field name="itemId" type="string" indexed="true" stored="true" required="true" />
+   <field name="replaces" type="string" indexed="true" stored="true" required="false" />
    <field name="itemTitle" type="lowercase" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
    <field name="itemLabel" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
    <field name="itemType" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
@@ -140,35 +142,43 @@
 
 	
 	<field name="relUri" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="containsInformationAbout" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="sameAs" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="isRelatedTo" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="containsObject" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="isContainedIn" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasBeenUsedIn" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasChild" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="hasParent" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasFind" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="isFoundIn" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasImage" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasObjectExample" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="isObjectExampleFor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="hasParent" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="hasPart" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="isPartOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="isDescribedBy" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="describes" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="isFoundIn" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="isPartOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="isRelatedTo" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="isVisualizedBy" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="sameAs" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="visualizes" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="containsInformationAbout" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="isMentionedBy" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="mentions" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	
-	<field name="is_current_or_former_member_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="has_current_or_former_member" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="occurred_in_the_presence_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="was_present_at" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="had_participant" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="participated_in" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="had_participant" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="was_present_at" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="occurred_in_the_presence_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="has_former_or_current_keeper" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="is_former_or_current_keeper_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="has_former_or_current_owner" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="is_former_or_current_owner_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="was_created_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+  <field name="has_created" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+  <field name="has_right_on" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="right_held_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+ 	<field name="is_current_or_former_member_of" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="has_current_or_former_member" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	
 	<field name="child" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -176,61 +186,105 @@
 	<field name="mother" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="father" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
-	
-	<field name="has_former_or_current_owner" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="has_former_or_current_keeper" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="was_created_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
-	<field name="right_held_by" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	<field name="client" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="clientOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="composer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="composerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="author" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="authorOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="architect" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="architectOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="inventor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="inventorOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="scenographer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="scenographerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="designer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="designerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="producer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="producerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="organizer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="organizerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="director" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="directorOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="photographer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="photographerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="painter" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="painterOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="builder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="builderOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="masterBuilder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="masterBuilderOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="constructionClient" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="constructionClientOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="engraver" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="engraverOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="mintmaster" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="mintmasterOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="artist" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="artistOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="designEngineer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="designEngineerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="carpenter" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="carpenterOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="mason" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="masonOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="technician" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="technicianOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="publisher" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="publisherOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="publicist" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="publicistOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="musician" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="musicianOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="actorActress" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="actorActressOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="printer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="printerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="signer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="signerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="finder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="finderOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="abandonee" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="abandoneeOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="intermediary" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="intermediaryOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="buyer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="buyerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="seller" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="sellerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="generalAgent" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="generalAgentOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="donor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="donorOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="depositor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="depositorOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="reseller" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="resellerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="inventoryTaker" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="inventoryTakerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="excavator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="excavatorOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="examinator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="examinatorOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="conservator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="conservatorOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="archiveContributor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="archiveContributorOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="interviewer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="interviewerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="informant" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="informantOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="patentHolder" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="patentHolderOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="user" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="userOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="scannerOperator" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="scannerOperatorOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="pictureEditor" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="pictureEditorOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="employer" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="employerOf" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="marriedTo" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 
 	<field name="mediaLicense" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -791,44 +845,31 @@
     <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
       <analyzer type="index">
         <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-        
-        
         <filter class="solr.StopFilterFactory"
                 ignoreCase="true"
-                words="stopwords.txt"
-
-                />
+                words="stopwords.txt" />
  <!--enablePositionIncrements="true"-->
-        <filter class="solr.WordDelimiterFilterFactory"
+        <filter class="solr.WordDelimiterGraphFilterFactory"
         		generateWordParts="1"
         		generateNumberParts="1"
         		catenateWords="1"
         		catenateNumbers="1"
-        		catenateAll="0"
-        		splitOnCaseChange="1"
+        		catenateAll="1"
+        		splitOnCaseChange="0"
         		stemEnglishPossessive="0"
-        		preserveOriginal="0"/>
+        		preserveOriginal="1"/>
+		  <filter class="solr.FlattenGraphFilterFactory"/> <!-- required on index analyzers after graph filters -->
         <filter class="solr.LowerCaseFilterFactory"/>
         <filter class="solr.SnowballPorterFilterFactory" language="Swedish" protected="protwords.txt"/>
       </analyzer>
+
       <analyzer type="query">
         <tokenizer class="solr.WhitespaceTokenizerFactory"/>
         <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
         <filter class="solr.StopFilterFactory"
                 ignoreCase="true"
-                words="stopwords.txt"
- 
-                />
+                words="stopwords.txt" />
  <!--enablePositionIncrements="true"-->
-        <filter class="solr.WordDelimiterFilterFactory"
-        		generateWordParts="1"
-        		generateNumberParts="1"
-        		catenateWords="0"
-        		catenateNumbers="0"
-        		catenateAll="0"
-        		splitOnCaseChange="1"
-				stemEnglishPossessive="0"
-        		preserveOriginal="0"/>
         <filter class="solr.LowerCaseFilterFactory"/>
         <filter class="solr.SnowballPorterFilterFactory" language="Swedish" protected="protwords.txt"/>
       </analyzer>
