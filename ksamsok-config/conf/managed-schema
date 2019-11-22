@@ -110,13 +110,8 @@
          If you don't need it, consider removing it and the corresponding copyField directive.
     -->
 
-    <!-- required for child document support -->
-    <field name="_root_" type="string" indexed="true" stored="true" multiValued="false" required="false"/>
-
-
   <field name="_version_" type="plong" indexed="false" stored="false"/>
-
-<field name="itemId" type="string" indexed="true" stored="true" required="false" />
+	<field name="itemId" type="string" indexed="true" stored="true" required="true" />
    <field name="itemTitle" type="lowercase" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
    <field name="itemLabel" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
    <field name="itemType" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
@@ -135,10 +130,6 @@
    <field name="itemLicense" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
    <field name="itemDescription" type="text" indexed="true" stored="false" multiValued="true"/>
 
-   <field name="measurementType" type="text" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
-   <field name="measurementValue" type="lowercase" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
-   <field name="measurementUnit" type="lowercase" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
-   <field name="measurementQualifier" type="text" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
    
 	<field name="subject" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="collection" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -316,11 +307,11 @@
 	<field name="highresSource" type="string" indexed="true" stored="true" multiValued="true"/>
 
    
-   <field name="_service" type="string" indexed="true" stored="true" required="false" />
-   <field name="_htmlurl" type="string" indexed="true" stored="true" required="false" />
+   <field name="_service" type="string" indexed="true" stored="true" required="true" />
+   <field name="_htmlurl" type="string" indexed="true" stored="true" required="true" />
    <field name="_museumdaturl" type="string" indexed="true" stored="true" required="false" />
-   <field name="_pres" type="binary" indexed="false" stored="true" required="false" />
-   <field name="_rdf" type="binary" indexed="false" stored="true" required="false" />
+   <field name="_pres" type="binary" indexed="false" stored="true" required="true" />
+   <field name="_rdf" type="binary" indexed="false" stored="true" required="true" />
    <field name="_lon" type="pdouble" indexed="true" stored="true" required="false" />
    <field name="_lat" type="pdouble" indexed="true" stored="true" required="false" />
    <field name="_relations" type="string" indexed="false" stored="true" multiValued="true" />
