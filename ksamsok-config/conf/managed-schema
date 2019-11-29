@@ -112,7 +112,7 @@
 
   <field name="_version_" type="plong" indexed="false" stored="false"/>
 
-<field name="itemId" type="string" indexed="true" stored="true" required="true" />
+	<field name="itemId" type="string" indexed="true" stored="true" required="true" />
    <field name="replaces" type="string" indexed="true" stored="true" required="false" />
    <field name="itemTitle" type="lowercase" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
    <field name="itemLabel" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
@@ -131,6 +131,7 @@
    <field name="itemNumber" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true" />
    <field name="itemLicense" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
    <field name="itemDescription" type="text" indexed="true" stored="false" multiValued="true"/>
+
    
 	<field name="subject" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="collection" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -294,7 +295,8 @@
 
 	<field name="serviceName" type="lowercase" indexed="true" stored="false"/>
 	<field name="serviceOrganization" type="lowercase" indexed="true" stored="false"/>
-	<field name="createdDate" type="string" indexed="true" stored="false"/> 
+	<field name="createdDate" type="string" indexed="true" stored="false"/>
+	<field name="buildDate" type="string" indexed="true" stored="false"/>
 	<field name="addedToIndexDate" type="string" indexed="true" stored="false"/> 
 	<field name="lastChangedDate" type="string" indexed="true" stored="false"/> 
 	<field name="thumbnailExists" type="lowercase" indexed="true" stored="false"/>
@@ -304,8 +306,7 @@
 	<field name="contextType" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="contextSuperType" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="contextLabel" type="lowercase" indexed="true" stored="false" multiValued="true"/>
-	
-	
+
 	<field name="placeName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="cadastralUnit" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<field name="placeTermId" type="lowercase" indexed="true" stored="false" multiValued="true"/>
@@ -352,6 +353,12 @@
 	<field name="place" type="text_ws" indexed="true" stored="false" multiValued="true"/>
 	<field name="time" type="text" indexed="true" stored="false" multiValued="true"/>
 	<field name="actor" type="text_ws" indexed="true" stored="false" multiValued="true"/>
+
+
+	<field name="thumbnail" type="string" indexed="true" stored="true"/>
+	<field name="thumbnailSource" type="string" indexed="true" stored="true" multiValued="true"/>
+	<field name="lowresSource" type="string" indexed="true" stored="true" multiValued="true"/>
+	<field name="highresSource" type="string" indexed="true" stored="true" multiValued="true"/>
 
    
    <field name="_service" type="string" indexed="true" stored="true" required="true" />
