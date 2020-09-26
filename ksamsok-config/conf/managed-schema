@@ -130,7 +130,9 @@
    <field name="itemColor" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true" />
    <field name="itemNumber" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true" />
    <field name="itemLicense" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
+	<field name="itemInscription" type="text" indexed="true" stored="false" multiValued="true"/>
    <field name="itemDescription" type="text" indexed="true" stored="false" multiValued="true"/>
+	<field name="itemMark" type="text" indexed="true" stored="false" multiValued="true"/>
 
    
 	<field name="subject" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -546,6 +548,8 @@
 	<copyField source="itemTechnique" dest="item"/>
 	<copyField source="itemStyle" dest="item"/>
 	<copyField source="itemColor" dest="item"/>
+	<copyField source="itemMark" dest="item"/>
+	<copyField source="itemInscription" dest="item"/>
 
 	
 	<copyField source="placeName" dest="place"/>
@@ -589,6 +593,8 @@
 	<copyField source="itemTechnique" dest="text"/>
 	<copyField source="itemStyle" dest="text"/>
 	<copyField source="itemColor" dest="text"/>
+	<copyField source="itemMark" dest="text"/>
+	<copyField source="itemInscription" dest="text"/>
 
    	
 	<copyField source="placeName" dest="text"/>
@@ -638,6 +644,8 @@
 	<copyField source="itemTechnique" dest="strict"/>
 	<copyField source="itemStyle" dest="strict"/>
 	<copyField source="itemColor" dest="strict"/>
+	<copyField source="itemMark" dest="text"/>
+	<copyField source="itemInscription" dest="strict"/>
 
    	
 	<copyField source="placeName" dest="strict"/>
