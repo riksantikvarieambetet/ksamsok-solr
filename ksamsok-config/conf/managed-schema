@@ -113,7 +113,8 @@
   <field name="_version_" type="plong" indexed="false" stored="false"/>
 
 	<field name="itemId" type="string" indexed="true" stored="true" required="true" />
-   <field name="replaces" type="string" indexed="true" stored="true" required="false" multiValued="true" docValues="true"/>
+   <field name="replaces" type="string" indexed="true" stored="true" required="false" />
+   <field name="multipleReplaces" type="string" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="itemTitle" type="lowercase" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
    <field name="itemLabel" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
    <field name="itemType" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
