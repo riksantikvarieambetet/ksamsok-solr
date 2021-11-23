@@ -1,46 +1,36 @@
 # K-samsök solr
 
-Installation av Solr sker helt manuellt eftersom installationen  av solr blir stökig att göra på sedvanligt sätt med bamboo och puppet.   
-<br> 
-Notera: Ändringar i mappen: "ksamsok-config" kan man driftsätta med bamboo. 
+För att hantera installationen av Solrindexet för K-samsök behöver man känna till hur installationen 
+är uppsatt, eftersom installationen av olika anledningar är något speciell.
 
-## Taggning inför driftsättning
-Eftersom installationen är manuell och inget byggs av bamboo behövs ett sätt att hålla koll på versioner i projektet. Därför ska "tags" sättas i projektet inför varje leverans. 
-<br>
-När du gjort en förändring i projektet och är nöjd gör följande för att tagga en version av projektet.
-<br>
-Syntax:
-```
-git tag -a <tag-namn> -m "<Kommentar-på-förändring>"
-```
-Exempel:
-```
-git tag -a v0.1 -m "Första versionen"
-```
-För att push:a en tag till remote, kör:
-```
-git push --follow-tags
-```
-För att lista befintliga taggar, kör:
-```
-git tag
-```
-För att kolla närmare på en specifik tag, kör: 
-```
-git show v0.1
-```
+Beroende på vilka förändringar som ska utföras på K-samsök solr kan man behöva göra någon 
+av de olika typerna av installation.
 
+* För att installera konfigurationsförändringar i K-samsök solr    
+    Används om konfigurationsförändringar ska göras i en befintlig installation. Utförs med bamboo.
+    Detta är det vanligaste installationsförfarandet för att t ex installera förändringar i det s.k. managed-schema.
+    Se installationsanvisningar under "Uppdatera konfigurationsförändringar för K-samsök solr"
+    
+* För att installera K-samsök Solr på en ny maskin eller uppgradera till ny solr-version     
+    Om K-samsök solr ska installeras på en ny tom maskin eller om man vill uppgradera 
+    versionen av Solr behöver man göra en grundinstallation av Solr.
 
-## Installera solr manuellt
+## Uppdatera konfigurationsförändringar för K-samsök solr
 
-### Kopiera över installationsfiler
+Om den uppdatering man vill göra endast är konfigurationsföränringar i Solr. Dvs bara uppdatera filinnehåll under mappen: "ksamsok-config" kan man driftsätta med bamboo. 
+Detta förutsätter givetvis att man redan har gjort en grundinstallation.
+
+### Manuell Grundinstallion av Solr
+
+#### Kopiera över installationsfiler
 Kopiera över filerna till installationsmaskinen.
 Nedanstående kommandon baseras på att man står i roten på projektet
 ```
 scp -r solr-7.5.0/* <din-användare>@<solr-maskin>:/tmp
 scp -r ksamsok-config <din-användare>@<solr-maskin>:/tmp
 ```
-### Avinstallation av befintlig Solr installation
+#### Avinstallation av befintlig Solr installation
+OM det finns en befintlig solr installation på maskinen ska nedanstående steg utföras.
 Innan en ny version av solr kan installeras måste föregående version avinstalleras eftersom det annars finns risk att indexet trasas sönder.
 Var därför noggrann att samtliga filer av solr raderas vid varje ny uppgradering.
 Logga in på maskinen och se till att blir root.
@@ -53,7 +43,7 @@ systemctl stop solr
 /tmp/uninstall-solr.sh
 ```
 
-### Installera solr
+#### Installera solr binären
 När Solr är avinstallerad kan man installera den nya versionen.
 
 1. Packa upp och installera solr
