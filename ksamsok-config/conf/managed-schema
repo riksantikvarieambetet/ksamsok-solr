@@ -140,7 +140,9 @@
 	<field name="dataQuality" type="lowercase" indexed="true" stored="false" omitNorms="true"/>
 	<field name="mediaType" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="theme" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<!-- protocol version is now on the form "1.2.0", hence it can no longer be a double, but has to be a string -->
 	<field name="protocolVersion" type="pdouble" indexed="true" stored="false" omitNorms="true" multiValued="false"/>
+	<field name="stringProtocolVersion" type="string" indexed="true" stored="false" omitNorms="true" multiValued="false"/>
 
 	
 	<field name="relUri" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -644,7 +646,7 @@
 	<copyField source="itemTechnique" dest="strict"/>
 	<copyField source="itemStyle" dest="strict"/>
 	<copyField source="itemColor" dest="strict"/>
-	<copyField source="itemMark" dest="text"/>
+	<copyField source="itemMark" dest="strict"/>
 	<copyField source="itemInscription" dest="strict"/>
 
    	
