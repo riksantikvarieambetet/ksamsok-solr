@@ -145,6 +145,13 @@
 	<field name="protocolVersion" type="pdouble" indexed="true" stored="false" omitNorms="true" multiValued="false"/>
 	<field name="stringProtocolVersion" type="string" indexed="true" stored="false" omitNorms="true" multiValued="false"/>
 
+
+	<field name="agent" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="fromPeriod" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="toPeriod" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="placeTerm" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+	<field name="event" type="lowercase" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
+
 	
 	<field name="relUri" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
 	<field name="sameAs" type="string" indexed="true" stored="false" omitNorms="true" multiValued="true"/>
@@ -422,6 +429,12 @@
 	<dynamicField name="*_province" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_parish" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 
+	<dynamicField name="*_placeTerm" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_fromPeriod" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_toPeriod" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_agent" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+	<dynamicField name="*_event" type="lowercase" indexed="true" stored="false" multiValued="true"/>
+
 	
 	<dynamicField name="*_firstName" type="lowercase" indexed="true" stored="false" multiValued="true"/>
 	<dynamicField name="*_surname" type="lowercase" indexed="true" stored="false" multiValued="true"/>
@@ -562,6 +575,7 @@
 	<copyField source="municipalityName" dest="place"/>
 	<copyField source="provinceName" dest="place"/>
 	<copyField source="parishName" dest="place"/>
+	<copyField source="placeTerm" dest="place"/>
 
 	
 	<copyField source="firstName" dest="actor"/>
@@ -569,6 +583,7 @@
 	<copyField source="fullName" dest="actor"/>
 	<copyField source="name" dest="actor"/>
 	<copyField source="organization" dest="actor"/>
+	<copyField source="agent" dest="actor"/>
 
 	
 	<copyField source="fromTime" dest="time"/>
@@ -576,6 +591,9 @@
 	<copyField source="fromPeriodName" dest="time"/>
 	<copyField source="toPeriodName" dest="time"/>
 	<copyField source="eventName" dest="time"/>
+	<copyField source="fromPeriod" dest="time"/>
+	<copyField source="toPeriod" dest="time"/>
+	<copyField source="event" dest="time"/>
 	
 	
 	
